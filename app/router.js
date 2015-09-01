@@ -13,18 +13,18 @@ Router.map(function() {
 
   this.route('venues', function() {
     this.route('index', {path: '/'});
-    this.route('show');
+    this.route('show', {path: ':venue_id'});
   });
 
   this.route('concerts', function() {
     this.route('index', {path: '/'});
-    this.route('show');
+    this.route('show', {path: ':concert_id'});
   });
 
   this.route('dashboard');
   this.route('profile');
 
-  this.route('post', {path: 'post/:id'});
+  this.route('post', {path: 'post/:post_id'});
 });
 
 export default Router;
