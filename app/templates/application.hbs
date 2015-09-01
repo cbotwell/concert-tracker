@@ -1,3 +1,17 @@
-<h2 id="title">Welcome to Ember</h2>
-
+<nav>
+    {{#if session.isAuthenticated}}
+    {{#link-to 'dashboard'}}<h2>Concert Tracker</h2>{{/link-to}}
+    {{else}}
+    {{#link-to 'index'}}<h2>Concert Tracker</h2>{{/link-to}}
+    {{/if}}
+    <ul>
+        {{#if session.isAuthenticated}}
+        {{#link-to 'profile'}}<li>My Profile</li>{{/link-to}}
+        <li{{action 'signOut' on='click'}}>Sign Out</li>
+        {{else}}
+        {{#link-to 'signup'}}<li>Sign Up</li>{{/link-to}}
+        {{#link-to 'login'}}<li>Log In</li>{{/link-to}}
+        {{/if}}
+    </ul>
+</nav>
 {{outlet}}
