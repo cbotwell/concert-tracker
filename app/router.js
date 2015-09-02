@@ -29,18 +29,18 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('venues', function() {
       this.route('index', {path: '/'});
-      this.route('create');
-      this.route('edit');
+      this.route('create', {path: 'new'});
+      this.route('edit', {path: ':venue_id/edit'});
     });
     this.route('concerts', function() {
       this.route('index', {path: '/'});
-      this.route('create');
-      this.route('edit');
+      this.route('create', {path: 'new'});
+      this.route('edit', {path: ':concert_id/edit'});
     });
     this.route('bands', function() {
       this.route('index', {path: '/'});
-      this.route('create');
-      this.route('edit');
+      this.route('create', {path: 'new'});
+      this.route('edit', {path: ':band_id/edit'});
     });
   });
 });

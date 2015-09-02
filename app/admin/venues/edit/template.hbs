@@ -1,1 +1,30 @@
-{{outlet}}
+<form {{action 'save' model on='submit'}}>
+    <label for="name">name</label>
+    {{input id='name' value=model.name}}
+
+    <label for="url">url</label>
+    {{input id='url' value=model.url type='url'}}
+    <label for="imageUrl">imageUrl</label>
+    {{input id='imageUrl' value=model.imageUrl type='url'}}
+
+    <label for="facebookUrl">facebookUrl</label>
+    {{input id='facebookUrl' value=model.facebookUrl type='url'}}
+    <label for="twitterUrl">twitterUrl</label>
+    {{input id='twitterUrl' value=model.twitterUrl type='url'}}
+    <label for="instagramUrl">instagramUrl</label>
+    {{input id='instagramUrl' value=model.instagramUrl type='url'}}
+
+    <label for="phoneNumber">phoneNumber</label>
+    {{input id='phoneNumber' value=model.phoneNumber type='tel'}}
+
+    <label for="address">address</label>
+    {{input id='address' value=model.address}}
+    <label for="city">city</label>
+    {{input id='city' value=model.city}}
+    <label for="state">state</label>
+    {{input id='state' value=model.state}}
+    <label for="zipcode">zipcode</label>
+    {{input id='zipcode' value=model.zipcode}}
+
+    <button>Save</button>
+</form>

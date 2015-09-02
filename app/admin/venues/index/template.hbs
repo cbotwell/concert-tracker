@@ -1,1 +1,6 @@
-{{outlet}}
+<ul>
+    <li>{{link-to 'Add New Venue' 'admin.venues.create'}}</li>
+{{#each model as |venue|}}
+    <li>{{venue.name}} {{link-to 'Edit' 'admin.venues.edit' venue}}</li>
+{{/each}}
+</ul>
