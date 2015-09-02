@@ -1,1 +1,20 @@
-{{outlet}}
+<form {{action 'save' model.concert bands on='submit'}}>
+
+    <label for="date">date</label>
+    {{input id='date' value=model.concert.date type='date' required='true'}}
+
+    <label for="bands">bands</label>
+    {{view 'select' content=model.bands optionLabelPath='content.name'
+    optionValuePath='content' value=bands id='bands' required='true' prompt='Please Choose...'}}
+
+    <label for="venue">venue</label>
+    {{view 'select' content=model.venues optionLabelPath='content.name'
+    optionValuePath='content' value=model.concert.venue id='venue' required='true' prompt='Please Choose...'}}
+
+    <label for="ticketUrl">ticketUrl</label>
+    {{input id='ticketUrl' value=model.concert.ticketUrl type='url'}}
+    <label for="imageUrl">imageUrl</label>
+    {{input id='imageUrl' value=model.concert.imageUrl type='url'}}
+
+    <button>Save</button>
+</form>

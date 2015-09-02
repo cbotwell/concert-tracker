@@ -14,5 +14,5 @@ export default DS.Model.extend({
   genre: DS.attr('string'),
   forFansOf: DS.attr('string'),
 
-  concerts: DS.hasMany('concert'),
+  concerts: DS.hasMany('concert', {async: true}),
 });

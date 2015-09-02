@@ -4,8 +4,10 @@ export default DS.Model.extend({
   ticketUrl: DS.attr('string'),
   imageUrl: DS.attr('string'),
 
-  rsvps: DS.attr('number'),
+  date: DS.attr('string'),
 
-  bands: DS.hasMany('band'),
-  venue: DS.belongsTo('venue'),
+  rsvps: DS.attr('number', {defaultValue: 0}),
+
+  bands: DS.hasMany('band', {async: true}),
+  venue: DS.belongsTo('venue', {async: true}),
 });

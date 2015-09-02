@@ -1,1 +1,11 @@
-{{outlet}}
+<ul>
+    <li>{{link-to 'Add New Concert' 'admin.concerts.create'}}</li>
+{{#each model as |concert|}}
+    <li>
+    {{#each concert.bands as |band|}}{{band.name}}{{/each}}
+    at {{concert.venue.name}}
+    on {{concert.date}}
+    {{link-to 'Edit' 'admin.concerts.edit' concert}}
+    </li>
+{{/each}}
+</ul>
