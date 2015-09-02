@@ -1,1 +1,6 @@
-{{outlet}}
+<ul>
+    <li>{{link-to 'Add New Band' 'admin.bands.create'}}</li>
+{{#each model as |band|}}
+    <li>{{band.name}} {{link-to 'Edit' 'admin.bands.edit' band}}</li>
+{{/each}}
+</ul>

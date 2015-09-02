@@ -1,1 +1,26 @@
-{{outlet}}
+<form {{action 'save' model on='submit'}}>
+    <label for="name">name</label>
+    {{input id='name' value=model.name}}
+
+    <label for="url">url</label>
+    {{input id='url' value=model.url type='url'}}
+    <label for="imageUrl">imageUrl</label>
+    {{input id='imageUrl' value=model.imageUrl type='url'}}
+
+    <label for="facebookUrl">facebookUrl</label>
+    {{input id='facebookUrl' value=model.facebookUrl type='url'}}
+    <label for="twitterUrl">twitterUrl</label>
+    {{input id='twitterUrl' value=model.twitterUrl type='url'}}
+    <label for="instagramUrl">instagramUrl</label>
+    {{input id='instagramUrl' value=model.instagramUrl type='url'}}
+
+    <label for="description">description</label>
+    {{textarea id='description' value=model.description}}
+
+    <label for="genre">genre</label>
+    {{input id='genre' value=model.genre}}
+    <label for="forFansOf">forFansOf</label>
+    {{input id='forFansOf' value=model.forFansOf}}
+
+    <button>Save</button>
+</form>
