@@ -25,6 +25,20 @@ Router.map(function() {
   this.route('profile');
 
   this.route('post', {path: 'post/:post_id'});
+  this.route('admin', function() {
+    this.route('venues', function() {
+      this.route('create');
+      this.route('edit');
+    });
+    this.route('concerts', function() {
+      this.route('create');
+      this.route('edit');
+    });
+    this.route('bands', function() {
+      this.route('create');
+      this.route('edit');
+    });
+  });
 });
 
 export default Router;
