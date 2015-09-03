@@ -7,7 +7,7 @@
     <ul>
         {{#if session.isAuthenticated}}
         {{#link-to 'profile'}}<li>My Profile</li>{{/link-to}}
-        <li{{action 'signOut' on='click'}}>Sign Out</li>
+        <li> <a href="#" {{action 'invalidateSession'}}>Sign Out</a></li>
         {{else}}
         {{#link-to 'signup'}}<li>Sign Up</li>{{/link-to}}
         {{#link-to 'login'}}<li>Log In</li>{{/link-to}}

@@ -16,6 +16,7 @@
     "bourbon": "4.2.3",
     "neat": "~1.7.2",
     "reset-scss": "*",
-    "font-awesome": "~4.4.0"
+    "font-awesome": "~4.4.0",
+    "ember-simple-auth": "0.8.0"
   }
 }

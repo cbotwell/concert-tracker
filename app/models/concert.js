@@ -11,4 +11,5 @@ export default DS.Model.extend({
 
   venue: DS.belongsTo('venue', {async: true}),
   bands: DS.hasMany('band', {async: true}),
+  users: DS.hasMany('user', {async: true}),
 });

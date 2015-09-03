@@ -1,4 +1,5 @@
-<form {{action 'signUp' on='submit'}}>
+<h4>Sign up or {{link-to 'Log in' 'login'}}</h4>
+<form {{action 'signup' email password firstName lastName on='submit'}}>
     <label for="email">Email</label>
     {{input name='email' value=email type='email'}}
     <label for="password">Password</label>
