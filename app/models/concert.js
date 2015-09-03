@@ -7,6 +7,7 @@ export default DS.Model.extend({
   date: DS.attr('string'),
 
   rsvps: DS.attr('number', {defaultValue: 0}),
+  featured: DS.attr('boolean', {defaultValue: false}),
 
   bands: DS.hasMany('band', {async: true}),
   venue: DS.belongsTo('venue', {async: true}),
