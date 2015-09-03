@@ -1,1 +1,13 @@
+<ul>
+{{#each model as |concert|}}
+    <li>
+    {{#link-to 'concerts.show' concert}}
+    {{#each concert.bands as |band|}}{{band.name}}{{/each}}
+    at {{concert.venue.name}}
+    on {{concert.date}}
+    {{/link-to}}
+    </li>
+{{/each}}
+</ul>
+
 {{outlet}}

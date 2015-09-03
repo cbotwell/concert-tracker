@@ -1,1 +1,7 @@
+<ul>
+{{#each model as |venue|}}
+    <li>{{#link-to 'venues.show' venue}}{{venue.name}}{{/link-to}}</li>
+{{/each}}
+</ul>
+
 {{outlet}}
