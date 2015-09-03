@@ -15,6 +15,7 @@
     "firebase": "^2.1.0",
     "bourbon": "4.2.3",
     "neat": "~1.7.2",
-    "reset-scss": "*"
+    "reset-scss": "*",
+    "font-awesome": "~4.4.0"
   }
 }

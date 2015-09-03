@@ -1,1 +1,32 @@
-{{outlet}}
+<img src="{{model.imageUrl}}" alt="{{model.name}}">
+
+<a href="{{model.url}}"><h2>{{model.name}}</h2></a>
+
+{{#if model.facebookUrl}}
+<a href="{{model.facebookUrl}}">{{fa-icon "facebook"}}</a>
+{{/if}}
+{{#if model.twitterUrl}}
+<a href="{{model.twitterUrl}}">{{fa-icon "twitter"}}</a>
+{{/if}}
+{{#if model.instagramUrl}}
+<a href="{{model.instagramUrl}}">{{fa-icon "instagram"}}</a>
+{{/if}}
+
+<p>
+    {{model.address}} {{model.city}}, {{model.state}} {{model.zipcode}}
+</p>
+<p>
+    {{model.phoneNumber}}
+</p>
+
+<ul>
+    {{#each model.concerts as |concert|}}
+    <li>
+    {{#link-to 'concerts.show' concert}}
+        {{#each concert.bands as |band|}}{{band.name}}{{/each}}
+        at {{concert.venue.name}}
+        on {{concert.date}}
+    {{/link-to}}
+    </li>
+    {{/each}}
+</ul>
