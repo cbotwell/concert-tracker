@@ -5,7 +5,7 @@
     {{#each concert.bands as |band|}}{{band.name}}{{/each}}
     at {{concert.venue.name}}
     on {{concert.date}}
-    {{link-to 'Edit' 'admin.concerts.edit' concert}}
+    {{link-to 'Edit' 'admin.concerts.edit' concert.id}}
     </li>
 {{/each}}
 </ul>

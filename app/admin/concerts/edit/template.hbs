@@ -4,11 +4,12 @@
     {{input id='date' value=model.concert.date type='date' required='true'}}
 
     <label for="bands">bands</label>
-    {{view 'select' content=model.bands optionLabelPath='content.name'
+    {{x-select content=model.bands optionLabelPath='content.name'
     optionValuePath='content' value=bands id='bands' required='true' prompt='Please Choose...'}}
 
     <label for="venue">venue</label>
-    {{view 'select' content=model.venues optionLabelPath='content.name'
+
+    {{x-select content=model.venues optionLabelPath='content.name'
     optionValuePath='content' value=model.concert.venue id='venue' required='true' prompt='Please Choose...'}}
 
     <label for="ticketUrl">ticketUrl</label>

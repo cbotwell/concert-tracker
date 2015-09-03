@@ -1,1 +1,10 @@
+{{#each model as |concert|}}
+{{#if concert.featured}}
+<div class="card">
+    {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+    <h5>{{concert.date}}</h5>
+    <h5>{{concert.venue.name}}</h5>
+</div>
+{{/if}}
+{{/each}}
 {{outlet}}
