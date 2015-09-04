@@ -18,15 +18,14 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
             email,
             password
           }).then((data) => {
-            debugger;
-            data.currentUser.set('firstName', firstName);
-            data.currentUser.set('lastName', lastName);
+            // var user = this.get('currentUser');
+            // data.currentUser.set('firstName', firstName);
+            // data.currentUser.set('lastName', lastName);
 
             data.currentUser.save().then(() => {
               this.transitionTo('login');
             });
           });
-
         });
       },
     },

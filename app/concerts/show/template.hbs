@@ -1,18 +1,18 @@
-<button>{{fa-icon "plus"}}</button>
-<button>{{model.rsvps}}</button>
+<button{{action 'saveConcert' model.concert on='click'}}>{{fa-icon "plus"}}</button>
+<button>{{model.concert.rsvps}}</button>
 
-{{#if model.ticketUrl}}
-<a href="{{model.ticketUrl}}">Buy Tickets</a>
+{{#if model.concert.ticketUrl}}
+<a href="{{model.concert.ticketUrl}}">Buy Tickets</a>
 {{/if}}
 
-<h2>{{model.date}}</h2>
+<h2>{{model.concert.date}}</h2>
 
-<h3>{{model.venue.name}}</h3>
+<h3>{{model.concert.venue.name}}</h3>
 <p>
-    {{model.venue.address}} {{model.venue.city}}, {{model.venue.state}} {{model.venue.zipcode}}
+    {{model.concert.venue.address}} {{model.concert.venue.city}}, {{model.concert.venue.state}} {{model.concert.venue.zipcode}}
 </p>
 
-{{#each model.bands as |band|}}
+{{#each model.concert.bands as |band|}}
 <img src="{{band.imageUrl}}" alt="{{band.name}}">
 <h3>{{band.name}}</h3>
 
