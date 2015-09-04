@@ -1,1 +1,42 @@
+<button>{{fa-icon "plus"}}</button>
+<button>{{model.rsvps}}</button>
+
+{{#if model.ticketUrl}}
+<a href="{{model.ticketUrl}}">Buy Tickets</a>
+{{/if}}
+
+<h2>{{model.date}}</h2>
+
+<h3>{{model.venue.name}}</h3>
+<p>
+    {{model.venue.address}} {{model.venue.city}}, {{model.venue.state}} {{model.venue.zipcode}}
+</p>
+
+{{#each model.bands as |band|}}
+<img src="{{band.imageUrl}}" alt="{{band.name}}">
+<h3>{{band.name}}</h3>
+
+{{#if band.url}}
+<a href="{{band.url}}">{{fa-icon "link"}}</a>
+{{/if}}
+{{#if band.facebookUrl}}
+<a href="{{band.facebookUrl}}">{{fa-icon "facebook"}}</a>
+{{/if}}
+{{#if band.twitterUrl}}
+<a href="{{band.twitterUrl}}">{{fa-icon "twitter"}}</a>
+{{/if}}
+{{#if band.instagramUrl}}
+<a href="{{band.instagramUrl}}">{{fa-icon "instagram"}}</a>
+{{/if}}
+
+{{#if band.description}}
+<p>{{band.description}}</p>
+{{/if}}
+{{#if band.genre}}
+<p>Genre: {{band.genre}}</p>
+{{/if}}
+{{#if band.forFansOf}}
+<p>For Fans of: {{band.forFansOf}}</p>
+{{/if}}
+{{/each}}
 {{outlet}}
