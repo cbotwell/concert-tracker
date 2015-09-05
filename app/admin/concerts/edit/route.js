@@ -14,10 +14,12 @@ export default Ember.Route.extend({
       var bandsArray = [bands];
       concert.setProperties({bands: bandsArray});
       concert.save().then(() => {
-        // concert.get('bands').foreach((band) => {
-        //   band.save();
-        // });
-        // concert.get('venue').save();
+        concert.get('venue').then((venue) => {
+          venue.save();
+        });
+        concert.get('bands').forEach((band) => {
+          band.save();
+        });
         this.transitionTo('admin.concerts');
       });
     },
