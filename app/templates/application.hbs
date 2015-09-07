@@ -1,4 +1,5 @@
 <nav>
+    <div class="container">
     {{#if session.isAuthenticated}}
     {{#link-to 'dashboard'}}<h2>Concert Tracker</h2>{{/link-to}}
     {{else}}
@@ -13,6 +14,7 @@
         {{#link-to 'login'}}<li>Log In</li>{{/link-to}}
         {{/if}}
     </ul>
+    </div>
 </nav>
 
 <div class="container">
