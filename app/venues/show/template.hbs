@@ -1,9 +1,12 @@
 <div class="large-card">
     <div class="left">
-        <img src="{{model.imageUrl}}" alt="{{model.name}}">
+        <div class="logo">
+            <img src="{{model.imageUrl}}" alt="{{model.name}}">
+        </div>
 
-        <a href="{{model.url}}"><h2>{{model.name}}</h2></a>
+        <h3>{{model.name}}</h3>
 
+        <a href="{{model.url}}">{{fa-icon "link"}}</a>
         {{#if model.facebookUrl}}
         <a href="{{model.facebookUrl}}">{{fa-icon "facebook"}}</a>
         {{/if}}
@@ -23,12 +26,14 @@
     </div>
 
     <div class="right">
-        <h2>Upcoming Concerts</h2>
+        <h4>Upcoming Concerts</h4>
         <ul>
             {{#each model.concerts as |concert|}}
-            <li>
+            <li class="concert">
             {{#link-to 'concerts.show' concert}}
-                {{#each concert.bands as |band|}}{{band.name}}{{/each}}
+                {{#each concert.bands as |band|}}
+                <span>{{band.name}}</span>
+                {{/each}}
                 on {{concert.date}}
             {{/link-to}}
             </li>
