@@ -1,7 +1,23 @@
-<ul>
-{{#each model as |venue|}}
-    <li>{{#link-to 'venues.show' venue}}{{venue.name}}{{/link-to}}</li>
-{{/each}}
-</ul>
+<div class="header all-venues">
+    {{#link-to 'concerts'}}<h2>All Concerts</h2>{{/link-to}}
+    {{#link-to 'venues'}}<h2>All Venues</h2>{{/link-to}}
+</div>
+<div class="venues">
+    {{#each model as |venue|}}
+    {{#link-to 'venues.show' venue}}
+        <div class="card">
+             <h3>{{venue.name}}</h3>
+             <p>
+                 {{venue.address}}
+             <br>
+                 {{venue.city}}, {{venue.state}} {{venue.zipcode}}
+             </p>
+             <p>
+                 {{venue.phoneNumber}}
+             </p>
+        </div>
+    {{/link-to}}
+    {{/each}}
+</div>
 
 {{outlet}}

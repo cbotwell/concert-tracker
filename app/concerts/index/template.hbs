@@ -1,15 +1,17 @@
-<ul>
-{{#each model as |concert|}}
-    <li>
+<div class="header all-concerts">
+    {{#link-to 'concerts'}}<h2>All Concerts</h2>{{/link-to}}
+    {{#link-to 'venues'}}<h2>All Venues</h2>{{/link-to}}
+</div>
+<div class="concerts">
+    {{#each model as |concert|}}
     {{#link-to 'concerts.show' concert}}
-    <div class="card">
-        {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
-        <h5>{{concert.date}}</h5>
-        <h5>{{concert.venue.name}}</h5>
-    </div>
+        <div class="card">
+            {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+            <h5>{{concert.date}}</h5>
+            <h5>{{concert.venue.name}}</h5>
+        </div>
     {{/link-to}}
-    </li>
-{{/each}}
-</ul>
+    {{/each}}
+</div>
 
 {{outlet}}

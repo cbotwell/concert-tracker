@@ -1,29 +1,43 @@
-{{#if model.user.savedConcerts.length}}
-{{#each model.user.savedConcerts as |concert|}}
-<div class="card">
-    {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
-    <h5>{{concert.date}}</h5>
-    <h5>{{concert.venue.name}}</h5>
+<div class="header">
+    <h2>Saved Concerts</h2>
 </div>
-{{/each}}
-{{else}}
-<div class="card no-saved-concerts">
-    <p>You should save some concerts!</p>
+<div class="saved">
+    {{#if model.user.savedConcerts.length}}
+    {{#each model.user.savedConcerts as |concert|}}
+        {{#link-to 'concerts.show' concert}}
+        <div class="card">
+            {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+            <h5>{{concert.date}}</h5>
+            <h5>{{concert.venue.name}}</h5>
+        </div>
+        {{/link-to}}
+    {{/each}}
+    {{else}}
+        <div class="card no-saved-concerts">
+            <p>You should save some concerts!</p>
+        </div>
+    {{/if}}
 </div>
-{{/if}}
 
-{{#each model.concerts as |concert|}}
-{{#if concert.featured}}
-<div class="card">
-    {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
-    <h5>{{concert.date}}</h5>
-    <h5>{{concert.venue.name}}</h5>
+<div class="header">
+    <h2>Featured Concerts</h2>
 </div>
-{{/if}}
-{{/each}}
+<div class="featured">
+    {{#each model.concerts as |concert|}}
+    {{#if concert.featured}}
+        {{#link-to 'concerts.show' concert}}
+        <div class="card">
+            {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+            <h5>{{concert.date}}</h5>
+            <h5>{{concert.venue.name}}</h5>
+        </div>
+        {{/link-to}}
+    {{/if}}
+    {{/each}}
+</div>
 
-<ul>
-<li>{{link-to 'All Venues' 'venues'}}</li>
-<li>{{link-to 'All Concerts' 'concerts'}}</li>
-</ul>
+<div class="links">
+    {{#link-to 'concerts'}}<h3>All Concerts</h3>{{/link-to}}
+    {{#link-to 'venues'}}<h3>All Venues</h3>{{/link-to}}
+</div>
 {{outlet}}

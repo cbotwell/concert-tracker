@@ -1,14 +1,21 @@
-{{#each model as |concert|}}
-{{#if concert.featured}}
-<div class="card">
-    {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
-    <h5>{{concert.date}}</h5>
-    <h5>{{concert.venue.name}}</h5>
+<div class="header">
+    <h2>Featured Concerts</h2>
 </div>
-{{/if}}
-{{/each}}
-<ul>
-<li>{{link-to 'All Venues' 'venues'}}</li>
-<li>{{link-to 'All Concerts' 'concerts'}}</li>
-</ul>
+<div class="featured">
+    {{#each model as |concert|}}
+    {{#if concert.featured}}
+        {{#link-to 'concerts.show' concert}}
+        <div class="card">
+            {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+            <h5>{{concert.date}}</h5>
+            <h5>{{concert.venue.name}}</h5>
+        </div>
+        {{/link-to}}
+    {{/if}}
+    {{/each}}
+</div>
+<div class="links">
+    {{#link-to 'concerts'}}<h3>All Concerts</h3>{{/link-to}}
+    {{#link-to 'venues'}}<h3>All Venues</h3>{{/link-to}}
+</div>
 {{outlet}}
