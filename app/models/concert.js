@@ -9,10 +9,7 @@ export default DS.Model.extend({
 
   rsvps: DS.attr('number', {defaultValue: 0}),
   // rsvps: Ember.computed('users', function() {
-  //   return this.get('users').then((data) => {
-  //     debugger;
-  //     return data.length;
-  //   });
+  //   return this.get('users').length;
   // }),
   featured: DS.attr('boolean', {defaultValue: false}),
 

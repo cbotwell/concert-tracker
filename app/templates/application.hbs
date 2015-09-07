@@ -6,7 +6,7 @@
     {{/if}}
     <ul>
         {{#if session.isAuthenticated}}
-        {{#link-to 'profile'}}<li>My Profile</li>{{/link-to}}
+        {{#link-to 'profile' user}}<li>My Profile</li>{{/link-to}}
         <li> <a href="#" {{action 'invalidateSession'}}>Sign Out</a></li>
         {{else}}
         {{#link-to 'signup'}}<li>Sign Up</li>{{/link-to}}

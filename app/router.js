@@ -22,7 +22,7 @@ Router.map(function() {
   });
 
   this.route('dashboard');
-  this.route('profile' , {path: '/:uid'});
+  this.route('profile' , {path: '/:user_uid'});
 
   this.route('post', {path: '/post/:post_id'});
 
