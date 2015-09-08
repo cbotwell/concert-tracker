@@ -244,6 +244,10 @@ nav {
         @include span-columns(4);
         @include omega(3n);
     }
+    .no-saved-concerts {
+        @include span-columns(4);
+        min-height: 166px;
+    }
 }
 .header {
     @include span-columns(12);
