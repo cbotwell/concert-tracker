@@ -259,17 +259,28 @@ nav {
         float: left;
         margin-right: 25px;
         font-size: 1.5em;
+
+        &:hover {
+            color: lighten($alt-color, 20%);
+        }
     }
 
     .active {
         background: $alt-color;
         color: $text-color;
         border-radius: 5px;
+
+        &:hover {
+        color: $text-color;
+        }
     }
     h3 {
         padding: 10px;
         font-size: 1.2em;
         color: lighten($alt-color, 15%);
+    }
+    h2 {
+        font-size: 1.4em;
     }
 }
 
