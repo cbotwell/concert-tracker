@@ -17,7 +17,7 @@ export default Ember.Route.extend({
         concert.get('venue').then((venue) => {
           venue.save();
         });
-        concert.get('bands').foreach((band) => {
+        concert.get('bands').forEach((band) => {
           band.save();
         });
         this.transitionTo('admin.concerts');

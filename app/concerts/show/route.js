@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(params) {
+    if (!this.get('session').isAuthenticated) {
+      return Ember.RSVP.hash({
+        concert: this.store.findRecord('concert', params.concert_id)
+      });
+    }
     return Ember.RSVP.hash({
       concert: this.store.findRecord('concert', params.concert_id),
       user: this.get('session').getCurrentUser(),
