@@ -4,7 +4,7 @@
 </div>
 <div class="concerts">
     {{#each model as |concert|}}
-    {{#link-to 'concerts.show' concert}}
+    {{#link-to 'concerts.show' concert.id}}
         <div class="card">
             {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
             <h5>{{concert.date}}</h5>

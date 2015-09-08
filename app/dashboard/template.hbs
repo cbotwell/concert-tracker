@@ -4,7 +4,7 @@
 <div class="saved">
     {{#if model.user.savedConcerts.length}}
     {{#each model.user.savedConcerts as |concert|}}
-        {{#link-to 'concerts.show' concert}}
+        {{#link-to 'concerts.show' concert.id}}
         <div class="card">
             {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
             <h5>{{concert.date}}</h5>
@@ -25,7 +25,7 @@
 <div class="featured">
     {{#each model.concerts as |concert|}}
     {{#if concert.featured}}
-        {{#link-to 'concerts.show' concert}}
+        {{#link-to 'concerts.show' concert.id}}
         <div class="card">
             {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
             <h5>{{concert.date}}</h5>

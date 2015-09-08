@@ -30,6 +30,7 @@
     </div>
 
     <div class="right">
+        {{#if session.isAuthenticated}}
         <div class="actions">
             <button{{action 'saveConcert' model.concert on='click'}}>{{fa-icon "plus"}}</button>
             <button>{{model.concert.rsvps}}</button>
@@ -38,6 +39,14 @@
             <a href="{{model.concert.ticketUrl}}"><button>Tickets</button></a>
             {{/if}}
         </div>
+        {{else}}
+        <div class="generic-actions">
+            {{#link-to 'login'}}<button>Log In To Track</button>{{/link-to}}
+            {{#if model.concert.ticketUrl}}
+            <a href="{{model.concert.ticketUrl}}"><button>Tickets</button></a>
+            {{/if}}
+        </div>
+        {{/if}}
 
         <h2>{{model.concert.date}}</h2>
         <h3>{{model.concert.venue.name}}</h3>

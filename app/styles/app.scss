@@ -168,6 +168,30 @@ nav {
                 }
             }
         }
+        .generic-actions {
+            @include span-columns(12);
+            margin-bottom: 30px;
+
+            button {
+                @include span-columns(12);
+            }
+            a:first-of-type {
+                @include span-columns(8);
+            }
+            a:last-of-type {
+                @include span-columns(4);
+                @include omega();
+
+                button {
+                    background: $nav-color;
+                    color: #FFFFFF;
+
+                    &:hover {
+                        background: darken($nav-color, 20%);
+                    }
+                }
+            }
+        }
 
         h2 {
             font-size: 1.5em;
