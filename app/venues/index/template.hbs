@@ -3,21 +3,7 @@
     {{#link-to 'venues'}}<h2>All Venues</h2>{{/link-to}}
 </div>
 <div class="venues">
-    {{#each model as |venue|}}
-    {{#link-to 'venues.show' venue}}
-        <div class="card">
-             <h3>{{venue.name}}</h3>
-             <p>
-                 {{venue.address}}
-             <br>
-                 {{venue.city}}, {{venue.state}} {{venue.zipcode}}
-             </p>
-             <p>
-                 {{venue.phoneNumber}}
-             </p>
-        </div>
-    {{/link-to}}
-    {{/each}}
+{{venue-by-city venues=model}}
 </div>
 
 {{outlet}}

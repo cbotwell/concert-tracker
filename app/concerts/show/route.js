@@ -17,7 +17,6 @@ export default Ember.Route.extend({
       this.get('session').getCurrentUser().then((user) => {
         user.get('savedConcerts').addObject(concert);
         user.save();
-        concert.incrementProperty('rsvps', 1);
         concert.save();
       });
     },

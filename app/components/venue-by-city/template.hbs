@@ -1,0 +1,22 @@
+{{#each venuesByCity as |city|}}
+<div class="header">
+    <h3>{{city.name}}</h3>
+</div>
+<div class="city">
+{{#each city.venues as |venue|}}
+{{#link-to 'venues.show' venue}}
+    <div class="card">
+         <h3>{{venue.name}}</h3>
+         <p>
+             {{venue.address}}
+         <br>
+             {{venue.city}}, {{venue.state}} {{venue.zipcode}}
+         </p>
+         <p>
+             {{venue.phoneNumber}}
+         </p>
+    </div>
+{{/link-to}}
+{{/each}}
+</div>
+{{/each}}

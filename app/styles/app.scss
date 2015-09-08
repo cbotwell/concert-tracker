@@ -252,19 +252,24 @@ nav {
 .header {
     @include span-columns(12);
     color: $alt-color;
-    font-size: 1.5em;
     margin-bottom: 25px;
 
     a {
         padding: 10px;
         float: left;
         margin-right: 25px;
+        font-size: 1.5em;
     }
 
     .active {
         background: $alt-color;
         color: $text-color;
         border-radius: 5px;
+    }
+    h3 {
+        padding: 10px;
+        font-size: 1.2em;
+        color: lighten($alt-color, 15%);
     }
 }
 
@@ -279,5 +284,9 @@ nav {
         background: $alt-color;
         border-radius: 5px;
         margin-right: 25px;
+
+        &:hover {
+            background: darken($alt-color, 20%);
+        }
     }
 }
