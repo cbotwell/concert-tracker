@@ -32,7 +32,7 @@
     <div class="right">
         {{#if session.isAuthenticated}}
         <div class="actions">
-            <button{{action 'saveConcert' model.concert on='click'}}>{{fa-icon "plus"}}</button>
+            {{concert-save-button concert=model.concert user=session.currentUser onClick='toggleRsvp'}}
             <button>{{model.concert.rsvps}}</button>
 
             {{#if model.concert.ticketUrl}}

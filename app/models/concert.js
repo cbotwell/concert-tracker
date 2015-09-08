@@ -13,8 +13,4 @@ export default DS.Model.extend({
 
   users: DS.hasMany('user', {async: true}),
   rsvps: Ember.computed.alias('users.length'),
-  saved: Ember.computed('users', function() {
-    var user = this.get('session').getCurrentUser();
-    return this.get('users').indexOf(user) >= 0;
-  }),
 });

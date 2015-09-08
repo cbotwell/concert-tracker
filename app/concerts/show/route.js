@@ -13,9 +13,14 @@ export default Ember.Route.extend({
     });
   },
   actions: {
-    saveConcert: function(concert) {
+    toggleRsvp: function(concert) {
       this.get('session').getCurrentUser().then((user) => {
-        user.get('savedConcerts').addObject(concert);
+        var saved = user.get('savedConcerts');
+          if (saved.indexOf(concert) >= 0) {
+            saved.removeObject(concert);
+          } else {
+            saved.addObject(concert);
+          }
         user.save();
         concert.save();
       });
