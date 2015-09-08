@@ -1,9 +1,9 @@
 <nav>
     <div class="container">
     {{#if session.isAuthenticated}}
-    {{#link-to 'dashboard'}}<h2>Concert Tracker</h2>{{/link-to}}
+    {{#link-to 'dashboard'}}<h2>{{fa-icon "bookmark"}} Concert Tracker</h2>{{/link-to}}
     {{else}}
-    {{#link-to 'index'}}<h2>Concert Tracker</h2>{{/link-to}}
+    {{#link-to 'index'}}<h2>{{fa-icon "bookmark"}} Concert Tracker</h2>{{/link-to}}
     {{/if}}
     <ul>
         {{#if session.isAuthenticated}}

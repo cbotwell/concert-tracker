@@ -15,6 +15,6 @@ export default DS.Model.extend({
   rsvps: Ember.computed.alias('users.length'),
   saved: Ember.computed('users', function() {
     var user = this.get('session').getCurrentUser();
-    return this.get('users').indexOf(user.uid);
+    return this.get('users').indexOf(user) >= 0;
   }),
 });
