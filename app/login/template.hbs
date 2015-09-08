@@ -1,4 +1,8 @@
-<h4>Log in or {{link-to 'Sign up' 'signup'}}</h4>
+<div class="header">
+    {{#link-to 'login'}}<h2>Log In</h2>{{/link-to}}
+    {{#link-to 'signup'}}<h2>Sign Up</h2>{{/link-to}}
+</div>
+<div class="large-card">
 <form {{action 'login' email password on='submit'}}>
     <label for="email">Email</label>
     {{input name='email' value=email type='email'}}
@@ -7,3 +11,4 @@
 
     <button>Log In</button>
 </form>
+</div>

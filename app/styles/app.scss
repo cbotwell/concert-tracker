@@ -215,6 +215,27 @@ nav {
             }
         }
     }
+
+    form {
+        label, input {
+            @include span-columns(12);
+            margin-bottom: 10px;
+        }
+        button {
+            background: $nav-color;
+            color: #FFFFFF;
+            padding: 15px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            font-weight: bold;
+            float: right;
+
+            &:hover {
+                background: darken($nav-color, 20%);
+            }
+        }
+    }
 }
 .featured, .saved, .concerts, .venues {
     @include span-columns(12);
@@ -229,8 +250,7 @@ nav {
     color: $alt-color;
     font-size: 1.5em;
     margin-bottom: 25px;
-}
-.all-concerts, .all-venues {
+
     a {
         padding: 10px;
         float: left;

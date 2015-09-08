@@ -17,6 +17,8 @@
     "neat": "~1.7.2",
     "reset-scss": "*",
     "font-awesome": "~4.4.0",
-    "ember-simple-auth": "0.8.0"
+    "ember-simple-auth": "0.8.0",
+    "moment": ">= 2.8.0",
+    "moment-timezone": ">= 0.1.0"
   }
 }
