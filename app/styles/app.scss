@@ -64,6 +64,9 @@ nav {
         border-bottom: $alt-border;
         padding-bottom: 10px;
         margin-bottom: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
     h5 {
         margin: 20px 0;
@@ -141,7 +144,7 @@ nav {
             font-weight: bold;
         }
 
-        button:hover {
+        button:hover:first-of-type {
             background: darken($alt-color, 20%);
         }
 
@@ -158,6 +161,10 @@ nav {
                 button {
                     background: $nav-color;
                     color: #FFFFFF;
+
+                    &:hover {
+                        background: darken($nav-color, 20%);
+                    }
                 }
             }
         }
@@ -199,31 +206,17 @@ nav {
     font-size: 1.5em;
     margin-bottom: 25px;
 }
-.all-concerts {
+.all-concerts, .all-venues {
     a {
         padding: 10px;
         float: left;
         margin-right: 25px;
-
-        &:first-of-type {
-            background: $alt-color;
-            color: $text-color;
-            border-radius: 5px;
-        }
     }
-}
 
-.all-venues {
-    a {
-        padding: 10px;
-        float: left;
-        margin-right: 25px;
-
-        &:last-of-type {
-            background: $alt-color;
-            color: $text-color;
-            border-radius: 5px;
-        }
+    .active {
+        background: $alt-color;
+        color: $text-color;
+        border-radius: 5px;
     }
 }
 
