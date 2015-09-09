@@ -6,12 +6,12 @@
 <form {{action 'signup' email password firstName lastName on='submit'}}>
     <label for="email">Email</label>
     {{input name='email' value=email type='email'}}
-    <label for="password">Password</label>
-    {{input name='password' value=password type='password'}}
-{{!--     <label for="firstName">First Name</label>
+    <label for="firstName">First Name</label>
     {{input name='firstName' value=firstName}}
     <label for="lastName">Last Name</label>
-    {{input name='lastName' value=lastName}} --}}
+    {{input name='lastName' value=lastName}}
+    <label for="password">Password</label>
+    {{input name='password' value=password type='password'}}
 
     <button>Sign Up</button>
 </form>
