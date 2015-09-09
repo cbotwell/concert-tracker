@@ -17,4 +17,5 @@ export default DS.Model.extend({
   zipcode: DS.attr('number'),
 
   concerts: DS.hasMany('concert', {async: true}),
+  users: DS.hasMany('user', {async: true}),
 });

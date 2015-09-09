@@ -1,34 +1,36 @@
 <div class="large-card">
     <div class="left">
         <div class="logo">
-            <img src="{{model.imageUrl}}" alt="{{model.name}}">
+            <img src="{{model.venue.imageUrl}}" alt="{{model.venue.name}}">
         </div>
 
-        <h3>{{model.name}}</h3>
-
-        <a href="{{model.url}}">{{fa-icon "link"}}</a>
-        {{#if model.facebookUrl}}
-        <a href="{{model.facebookUrl}}">{{fa-icon "facebook"}}</a>
+        <h3>{{model.venue.name}}</h3>
+        {{#if session.isAuthenticated}}
+            {{venue-fav-button venue=model.venue user=session.currentUser onClick='toggleFav'}}
         {{/if}}
-        {{#if model.twitterUrl}}
-        <a href="{{model.twitterUrl}}">{{fa-icon "twitter"}}</a>
+        <a href="{{model.venue.url}}">{{fa-icon "link"}}</a>
+        {{#if model.venue.facebookUrl}}
+        <a href="{{model.venue.facebookUrl}}">{{fa-icon "facebook"}}</a>
         {{/if}}
-        {{#if model.instagramUrl}}
-        <a href="{{model.instagramUrl}}">{{fa-icon "instagram"}}</a>
+        {{#if model.venue.twitterUrl}}
+        <a href="{{model.venue.twitterUrl}}">{{fa-icon "twitter"}}</a>
+        {{/if}}
+        {{#if model.venue.instagramUrl}}
+        <a href="{{model.venue.instagramUrl}}">{{fa-icon "instagram"}}</a>
         {{/if}}
 
         <p>
-            {{model.address}} {{model.city}}, {{model.state}} {{model.zipcode}}
+            {{model.venue.address}} {{model.venue.city}}, {{model.venue.state}} {{model.venue.zipcode}}
         </p>
         <p>
-            {{model.phoneNumber}}
+            {{model.venue.phoneNumber}}
         </p>
     </div>
 
     <div class="right">
         <h4>Upcoming Concerts</h4>
         <ul>
-            {{#each model.concerts as |concert|}}
+            {{#each model.venue.concerts as |concert|}}
             <li class="concert">
             {{#link-to 'concerts.show' concert.id}}
                 {{#each concert.bands as |band|}}
