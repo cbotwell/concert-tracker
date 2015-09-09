@@ -237,7 +237,7 @@ nav {
         }
     }
 }
-.featured, .saved, .concerts, .venues {
+.featured, .saved, .faved, .concerts, .venues {
     @include span-columns(12);
     margin-bottom: 50px;
     a {

@@ -4,7 +4,7 @@
 <div class="saved">
     {{#if model.savedConcerts.length}}
     {{#each model.savedConcerts as |concert|}}
-        {{#link-to 'concerts.show' concert}}
+        {{#link-to 'concerts.show' concert.id}}
         <div class="card">
             {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
             <h5>{{moment-format concert.date 'dddd, MMMM Do YYYY'}}</h5>
@@ -15,6 +15,33 @@
     {{else}}
         <div class="card no-saved-concerts">
             <p>You should save some concerts!</p>
+        </div>
+    {{/if}}
+</div>
+
+<div class="header">
+    <h2>Favorite Venues</h2>
+</div>
+<div class="faved">
+    {{#if model.favoriteVenues.length}}
+    {{#each model.favoriteVenues as |venue|}}
+        {{#link-to 'concerts.show' venue.id}}
+        <div class="card">
+             <h3>{{venue.name}}</h3>
+             <p>
+                 {{venue.address}}
+             <br>
+                 {{venue.city}}, {{venue.state}} {{venue.zipcode}}
+             </p>
+             <p>
+                 {{venue.phoneNumber}}
+             </p>
+        </div>
+        {{/link-to}}
+    {{/each}}
+    {{else}}
+        <div class="card no-saved-concerts">
+            <p>You should find a favorite venue!</p>
         </div>
     {{/if}}
 </div>

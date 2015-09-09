@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     if (user) {
       user = user.content;
 
-      return this.get('venues.users').indexOf(user) >= 0;
+      return this.get('venue.users').indexOf(user) >= 0;
     }
   }),
 
