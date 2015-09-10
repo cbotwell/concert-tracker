@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default DS.Model.extend({
   ticketUrl: DS.attr('string'),
   imageUrl: DS.attr('string'),
-  date: DS.attr('string'),
+  date: DS.attr('moment-utc'),
   time: DS.attr('string'),
 
   featured: DS.attr('boolean', {defaultValue: false}),

@@ -49,6 +49,7 @@
         {{/if}}
 
         <h2>{{moment-format model.concert.date 'dddd, MMMM Do YYYY'}}</h2>
+        <h2>{{moment-format model.concert.time 'h:mm a' 'hh:mm A'}}</h2>
         <h3>{{model.concert.venue.name}}</h3>
         <p>
             {{model.concert.venue.address}}
