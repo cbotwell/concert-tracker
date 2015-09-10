@@ -1,7 +1,10 @@
 <form {{action 'save' model.concert bands on='submit'}}>
 
     <label for="date">date</label>
-    {{input id='date' value=model.concert.date type='date' required='true'}}
+    {{pick-a-date id='date' date=model.concert.date value=model.concert.date placeholder="Pick a date"}}
+
+    <label for="time">time</label>
+    {{pick-a-time id='time' date=model.concert.time value=model.concert.time placeholder="Pick a time"}}
 
     <label for="bands">bands</label>
     {{x-select content=model.bands optionLabelPath='content.name'

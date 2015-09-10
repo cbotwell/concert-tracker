@@ -19,6 +19,7 @@
     "font-awesome": "~4.4.0",
     "ember-simple-auth": "0.8.0",
     "moment": ">= 2.8.0",
-    "moment-timezone": ">= 0.1.0"
+    "moment-timezone": ">= 0.1.0",
+    "pickadate": "~3.5.6"
   }
 }
