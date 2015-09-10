@@ -5,7 +5,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
     return Ember.RSVP.hash({
       concerts: this.store.findAll('concert'),
-      user: this.get('session.currentUser'),
+      user: this.get('session').getCurrentUser(),
     });
   },
 });

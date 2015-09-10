@@ -67,6 +67,20 @@ nav {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+
+        .venue {
+            @include span-columns(10.5);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .fav {
+            @include span-columns(1.5);
+
+            .fa-heart:hover {
+                color: lighten($header-color, 5%);
+            }
+        }
     }
     h5 {
         margin: 20px 0;
@@ -109,6 +123,16 @@ nav {
             margin-bottom: 20px;
             margin-right: 20px;
             float: left;
+
+            .fav {
+                float: right;
+                margin-left: 20px;
+                font-size: 0.8em;
+
+                .fa-heart:hover {
+                    color: lighten($header-color, 5%);
+                }
+            }
         }
 
         a {
@@ -236,8 +260,30 @@ nav {
             }
         }
     }
+    .comments {
+        clear: both;
+        padding-top: 30px;
+    }
+
+    .user {
+        h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: $nav-color;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
 }
-.featured, .saved, .faved, .concerts, .venues {
+.featured, .saved, .faved, .concerts, .venues, .profile {
     @include span-columns(12);
     margin-bottom: 50px;
     a {

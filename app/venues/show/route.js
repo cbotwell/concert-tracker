@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import ToggleFav from 'concert-tracker/mixins/toggle-fav';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(ToggleFav, {
   model: function(params) {
     if (!this.get('session').isAuthenticated) {
       return Ember.RSVP.hash({
@@ -11,19 +12,5 @@ export default Ember.Route.extend({
       venue: this.store.findRecord('venue', params.venue_id),
       user: this.get('session').getCurrentUser(),
     });
-  },
-  actions: {
-    toggleFav: function(venue) {
-      this.get('session').getCurrentUser().then((user) => {
-        var faved = user.get('favoriteVenues');
-          if (faved.indexOf(venue) >= 0) {
-            faved.removeObject(venue);
-          } else {
-            faved.addObject(venue);
-          }
-        user.save();
-        venue.save();
-      });
-    },
   },
 });

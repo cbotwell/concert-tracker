@@ -57,5 +57,9 @@
         </p>
     </div>
 
+    <div class="comments">
+        {{disqus-comments identifier=model.concert.id title=model.concert.bands.[0].name}}
+    </div>
+
     {{outlet}}
 </div>

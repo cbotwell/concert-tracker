@@ -1,4 +1,17 @@
 <div class="header">
+    <h2>My Profile</h2>
+</div>
+<div class="profile">
+    <div class="large-card">
+        <div class="user">
+            <h2>{{model.firstName}} {{model.lastName}}</h2>
+            <h3>{{model.email}}</h3>
+            <h3><span>Joined:</span> {{moment-from-now model.joinDate}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="header">
     <h2>Saved Concerts</h2>
 </div>
 <div class="saved">
@@ -27,7 +40,7 @@
     {{#each model.favoriteVenues as |venue|}}
         {{#link-to 'concerts.show' venue.id}}
         <div class="card">
-             <h3>{{venue.name}}</h3>
+             <h3><div class="venue">{{venue.name}}</div> {{venue-fav-button venue=venue user=model onClick='toggleFav'}}</h3>
              <p>
                  {{venue.address}}
              <br>

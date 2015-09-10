@@ -9,6 +9,9 @@ module.exports = function(environment) {
       routeAfterAuthentication: 'dashboard',
       routeIfAlreadyAuthenticated: 'dashboard'
     },
+    disqus: {
+          shortname: 'corbinotwell'
+    },
     contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
     firebase: 'https://co-concert-tracker.firebaseio.com/',
     baseURL: '/',

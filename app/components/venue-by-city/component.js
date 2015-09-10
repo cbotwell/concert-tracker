@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import ToggleFav from 'concert-tracker/mixins/toggle-fav';
 
-export default Ember.Component.extend({
+
+export default Ember.Component.extend(ToggleFav, {
   venues: [],
 
   venuesByCity: Ember.computed('venues', 'venues.@each.city', 'venues.@each.name', function() {
