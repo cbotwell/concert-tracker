@@ -300,7 +300,6 @@ nav {
         @include omega(3n);
     }
     .no-saved-concerts {
-        @include span-columns(4);
         min-height: 166px;
     }
 }
