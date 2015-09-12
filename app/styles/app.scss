@@ -241,9 +241,17 @@ nav {
     }
 
     form {
+        padding: 0 20%;
+
         label, input {
             @include span-columns(12);
             margin-bottom: 10px;
+        }
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: $borders;
+            font-size: 1em;
         }
         button {
             background: $nav-color;
@@ -254,6 +262,7 @@ nav {
             border: none;
             font-weight: bold;
             float: right;
+            width: 100px;
 
             &:hover {
                 background: darken($nav-color, 20%);
