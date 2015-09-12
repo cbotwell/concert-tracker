@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   saved: Ember.computed('user', 'concert.users', function() {
     var user = this.get('user');
     if (user) {
-      user = user.content;
+      user = user;
 
       return this.get('concert.users').indexOf(user) >= 0;
     }
