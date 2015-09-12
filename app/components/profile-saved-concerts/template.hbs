@@ -1,0 +1,24 @@
+{{#each savedConcertsByTime as |time|}}
+<div class="header">
+    <h3>{{time.name}}</h3>
+</div>
+<div class="saved">
+    {{#if time.savedConcerts.length}}
+    {{#each time.savedConcerts as |concert|}}
+        {{#link-to 'concerts.show' concert.id}}
+        <div class="card">
+            {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+            <h5>{{moment-format concert.date 'dddd, MMMM Do YYYY'}}</h5>
+            <h5>{{concert.venue.name}}</h5>
+        </div>
+        {{/link-to}}
+    {{/each}}
+    {{else}}
+        {{#link-to 'concerts'}}
+        <div class="card no-saved-concerts">
+            <p>You should save some concerts!</p>
+        </div>
+        {{/link-to}}
+    {{/if}}
+</div>
+{{/each}}
