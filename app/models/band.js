@@ -9,6 +9,8 @@ export default DS.Model.extend({
   facebookUrl: DS.attr('string'),
   twitterUrl: DS.attr('string'),
   instagramUrl: DS.attr('string'),
+  soundcloudUrl: DS.attr('string'),
+  spotifyUrl: DS.attr('string'),
 
   description: DS.attr('string'),
   genre: DS.attr('string'),
