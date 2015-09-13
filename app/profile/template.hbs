@@ -12,11 +12,6 @@
 </div>
 
 <div class="header">
-    <h2>Saved Concerts</h2>
-</div>
-{{profile-saved-concerts concerts=model.savedConcerts}}
-
-<div class="header">
     <h2>Favorite Venues</h2>
 </div>
 <div class="faved">
@@ -42,4 +37,10 @@
         </div>
     {{/if}}
 </div>
+
+<div class="header">
+    <h2>Saved Concerts</h2>
+</div>
+{{profile-saved-concerts concerts=model.savedConcerts}}
+
 {{outlet}}
