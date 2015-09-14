@@ -17,5 +17,6 @@ export default Ember.Component.extend({
   click(ev) {
     ev.preventDefault();
     this.sendAction('onClick', this.get('venue'));
+    return false;
   }
 });
