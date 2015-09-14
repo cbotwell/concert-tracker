@@ -42,6 +42,11 @@ Router.map(function() {
       this.route('create', {path: '/new'});
       this.route('edit', {path: '/:band_id/edit'});
     });
+    this.route('posts', function() {
+      this.route('index', {path: '/'});
+      this.route('create', {path: '/new'});
+      this.route('edit', {path: '/:post_id/edit'});
+    });
   });
 });
 

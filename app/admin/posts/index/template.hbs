@@ -1,0 +1,18 @@
+<div class="bands">
+    {{#link-to 'admin.posts.create'}}
+        <div class="card add">
+            <p>{{fa-icon 'plus'}}</p>
+            <p>Add New Post</p>
+        </div>
+    {{/link-to}}
+
+    {{#each model as |post|}}
+    {{#link-to 'admin.posts.edit' post}}
+        <div class="card">
+            <h3>{{post.title}}</h3>
+            <p><span>Author: </span>{{post.author.fullName}}</p>
+            <p><span>Posted: </span>{{moment-from-now post.date}}</p>
+        </div>
+    {{/link-to}}
+    {{/each}}
+</div>

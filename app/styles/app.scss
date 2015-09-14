@@ -292,15 +292,33 @@ nav {
         }
     }
 }
-.featured, .saved, .faved, .concerts, .venues, .profile {
+.featured, .saved, .faved, .concerts, .venues, .bands, .profile {
     @include span-columns(12);
     margin-bottom: 50px;
     a {
         @include span-columns(4);
         @include omega(3n);
     }
-    .no-saved-concerts {
+    .card {
         min-height: 166px;
+    }
+    .no-saved-concerts, .add {
+        min-height: 166px;
+    }
+    .add {
+        text-align: center;
+        position: relative;
+
+        .fa-plus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .band {
+        max-height: 166px;
+        overflow: hidden;
     }
 }
 .header {

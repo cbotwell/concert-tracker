@@ -1,6 +1,17 @@
-<ul>
-    <li>{{link-to 'Add New Band' 'admin.bands.create'}}</li>
-{{#each model as |band|}}
-    <li>{{band.name}} {{link-to 'Edit' 'admin.bands.edit' band}}</li>
-{{/each}}
-</ul>
+<div class="bands">
+    {{#link-to 'admin.bands.create'}}
+        <div class="card add">
+            <p>{{fa-icon 'plus'}}</p>
+            <p>Add New Band</p>
+        </div>
+    {{/link-to}}
+
+    {{#each model as |band|}}
+    {{#link-to 'admin.bands.edit' band}}
+        <div class="card band">
+            <h3>{{band.name}}</h3>
+            <p>{{band.description}}</p>
+        </div>
+    {{/link-to}}
+    {{/each}}
+</div>

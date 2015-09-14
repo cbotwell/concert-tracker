@@ -1,0 +1,16 @@
+<form {{action 'save' model.post on='submit'}}>
+    <label for="title">title</label>
+    {{input id='title' value=model.post.title}}
+
+    <label for="content">content</label>
+    {{textarea id='content' value=model.post.content}}
+
+    <label for="tags">tags</label>
+    {{input id='tags' value=model.post.tags}}
+
+    <label for="concert">concert</label>
+    {{view 'select' content=model.concerts optionLabelPath='content.id'
+    optionValuePath='content' value=model.post.concert id='concert' required='true' prompt='Please Choose...'}}
+
+    <button>Save</button>
+</form>

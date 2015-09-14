@@ -1,7 +1,8 @@
-<ul>
-    <li>{{link-to 'Venues' 'admin.venues.index'}}</li>
-    <li>{{link-to 'Concerts' 'admin.concerts.index'}}</li>
-    <li>{{link-to 'Bands' 'admin.bands.index'}}</li>
-</ul>
+<div class="header">
+    {{#link-to 'admin.venues.index'}}<h2>Venues</h2>{{/link-to}}
+    {{#link-to 'admin.concerts.index'}}<h2>Concerts</h2>{{/link-to}}
+    {{#link-to 'admin.bands.index'}}<h2>Bands</h2>{{/link-to}}
+    {{#link-to 'admin.posts.index'}}<h2>Posts</h2>{{/link-to}}
+</div>
 
 {{outlet}}

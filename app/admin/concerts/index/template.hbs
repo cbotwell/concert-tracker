@@ -1,11 +1,18 @@
-<ul>
-    <li>{{link-to 'Add New Concert' 'admin.concerts.create'}}</li>
-{{#each model as |concert|}}
-    <li>
-    {{#each concert.bands as |band|}}{{band.name}}{{/each}}
-    at {{concert.venue.name}}
-    on {{concert.date}}
-    {{link-to 'Edit' 'admin.concerts.edit' concert.id}}
-    </li>
-{{/each}}
-</ul>
+<div class="concerts">
+    {{#link-to 'admin.concerts.create'}}
+        <div class="card add">
+            <p>{{fa-icon 'plus'}}</p>
+            <p>Add New Concert</p>
+        </div>
+    {{/link-to}}
+
+    {{#each model as |concert|}}
+    {{#link-to 'admin.concerts.edit' concert.id}}
+        <div class="card">
+            {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+            <h5>{{moment-format concert.date 'dddd, MMMM Do YYYY'}}</h5>
+            <h5>{{concert.venue.name}}</h5>
+        </div>
+    {{/link-to}}
+    {{/each}}
+</div>
