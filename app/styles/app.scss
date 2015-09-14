@@ -310,24 +310,39 @@ nav {
         }
     }
     .post {
-        .left {
+        .post-title {
+
             h2 {
                 color: $header-color;
                 font-size: 1.5em;
                 margin-bottom: 20px;
+                line-height: 1.2;
+                font-weight: bold;
             }
             h3 {
                 color: $bg-color;
                 margin-bottom: 20px;
                 font-size: 1em;
+                overflow: auto;
+
+                span {
+                    font-weight: bold;
+                }
             }
+        }
+
+        .content {
+            border-top: $alt-border;
+            padding-top: 20px;
+            clear: both;
+
             p {
-                line-height: 1.3;
+                line-height: 1.5;
             }
         }
 
         .right {
-            padding-left: 5%;
+            padding-left: 3%;
             img {
                 width: 100%;
                 margin-bottom: 20px;

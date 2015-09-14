@@ -33,18 +33,7 @@
     <div class="right">
         <div class="venue-concerts">
             <h4>Upcoming Concerts</h4>
-            <ul>
-                {{#each model.venue.concerts as |concert|}}
-                <li class="concert">
-                {{#link-to 'concerts.show' concert.id}}
-                    {{#each concert.bands as |band|}}
-                    <span>{{band.name}}</span>
-                    {{/each}}
-                    on {{moment-format concert.date 'dddd, MMMM Do YYYY'}}
-                {{/link-to}}
-                </li>
-                {{/each}}
-            </ul>
+            {{venue-upcoming-concerts concerts=model.venue.concerts}}
         </div>
     </div>
 </div>
