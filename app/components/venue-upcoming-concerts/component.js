@@ -1,16 +1,14 @@
 import Ember from 'ember';
-import moment from 'moment';
+import {dateBefore} from 'concert-tracker/helper-functions';
 
 export default Ember.Component.extend({
   tagName: 'ul',
 
-  concerts: [],
+  concerts: null,
 
-  upcomingConcerts: Ember.computed.filter('concerts', function(concert) {
-    var date = concert.get('date');
-    if (date > moment()) {
-      return concert;
-    }
+  upcomingConcerts: Ember.computed('concerts', 'concerts.@each.date', function() {
+    console.log('run');
+    return this.get('concerts').filter(dateBefore);
   }),
 
 });
