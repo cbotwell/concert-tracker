@@ -5,8 +5,9 @@
                 <h2>{{model.title}}</h2>
                 <h3>Author: {{model.author.fullName}}</h3>
                 <h3>Posted: {{moment-from-now model.date}}</h3>
-
-                <p>{{model.content}}</p>
+                <div class="content">
+                    {{markdown-to-html markdown=model.content}}
+                </div>
             </div>
             <div class="right">
                 {{#each model.concert.bands as |band|}}
