@@ -13,5 +13,6 @@ export default DS.Model.extend({
   bands: DS.hasMany('band', {async: true}),
 
   users: DS.hasMany('user', {async: true}),
+  posts: DS.hasMany('post', {async: true}),
   rsvps: Ember.computed.alias('users.length'),
 });

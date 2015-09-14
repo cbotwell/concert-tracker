@@ -11,9 +11,15 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    save: function(post) {
-      post.setProperties({date: moment(), author: this.get('session').getCurrentUser()});
+    save: function(post, user) {
+      post.setProperties({date: moment(), author: user});
       post.save().then(() => {
+        post.get('author').then((user) => {
+          user.save();
+        });
+        post.get('concert').then((concert) => {
+          concert.save();
+        });
         this.transitionTo('admin.posts');
       });
     },

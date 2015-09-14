@@ -1,26 +1,31 @@
-<form {{action 'save' model.concert bands on='submit'}}>
+<div class="header">
+    <h3>New Concert</h3>
+</div>
+<div class="large-card">
+    <form {{action 'save' model.concert bands on='submit'}}>
 
-    <label for="date">date</label>
-    {{pick-a-date id='date' date=model.concert.date placeholder="Pick a date"}}
+        <label for="date">date</label>
+        {{pick-a-date id='date' date=model.concert.date placeholder="Pick a date"}}
 
-    <label for="time">time</label>
-    {{pick-a-time id='time' date=model.concert.date placeholder="Pick a time"}}
+        <label for="time">time</label>
+        {{pick-a-time id='time' date=model.concert.date placeholder="Pick a time"}}
 
-    <label for="bands">bands</label>
-    {{view 'select' content=model.bands optionLabelPath='content.name'
-    optionValuePath='content' value=bands id='bands' required='true' prompt='Please Choose...'}}
+        <label for="bands">bands</label>
+        {{view 'select' content=model.bands optionLabelPath='content.name'
+        optionValuePath='content' value=bands id='bands' required='true' prompt='Please Choose...'}}
 
-    <label for="venue">venue</label>
-    {{view 'select' content=model.venues optionLabelPath='content.name'
-    optionValuePath='content' value=model.concert.venue id='venue' required='true' prompt='Please Choose...'}}
+        <label for="venue">venue</label>
+        {{view 'select' content=model.venues optionLabelPath='content.name'
+        optionValuePath='content' value=model.concert.venue id='venue' required='true' prompt='Please Choose...'}}
 
-    <label for="ticketUrl">ticketUrl</label>
-    {{input id='ticketUrl' value=model.concert.ticketUrl type='url'}}
-    <label for="imageUrl">imageUrl</label>
-    {{input id='imageUrl' value=model.concert.imageUrl type='url'}}
+        <label for="ticketUrl">ticketUrl</label>
+        {{input id='ticketUrl' value=model.concert.ticketUrl type='url'}}
+        <label for="imageUrl">imageUrl</label>
+        {{input id='imageUrl' value=model.concert.imageUrl type='url'}}
 
-    <label for="featured">featured</label>
-    {{featured-select value=model.concert.featured}}
+        <label for="featured">featured</label>
+        {{featured-select value=model.concert.featured}}
 
-    <button>Save</button>
-</form>
+        <button>Save</button>
+    </form>
+</div>

@@ -7,7 +7,7 @@
     {{/link-to}}
 
     {{#each model as |post|}}
-    {{#link-to 'admin.posts.edit' post}}
+    {{#link-to 'admin.posts.edit' post.id}}
         <div class="card">
             <h3>{{post.title}}</h3>
             <p><span>Author: </span>{{post.author.fullName}}</p>

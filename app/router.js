@@ -24,7 +24,9 @@ Router.map(function() {
   this.route('dashboard');
   this.route('profile');
 
-  this.route('post', {path: '/post/:post_id'});
+  this.route('post', function() {
+    this.route('show', {path: '/:post_id'});
+  });
 
   this.route('admin', function() {
     this.route('venues', function() {
