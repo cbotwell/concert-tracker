@@ -40,7 +40,11 @@ nav {
         font-size: 1.8em;
     }
     ul {
-        float: right;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+
         li {
             float: left;
             margin-right: 30px;
@@ -48,6 +52,7 @@ nav {
     }
 }
 .container {
+    position: relative;
     @include outer-container(980px);
 }
 .card {

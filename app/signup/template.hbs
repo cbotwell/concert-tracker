@@ -5,13 +5,13 @@
 <div class="large-card">
 <form {{action 'signup' email password firstName lastName on='submit'}}>
     <label for="email">Email</label>
-    {{input name='email' value=email type='email'}}
+    {{input name='email' value=email type='email' required='true'}}
     <label for="firstName">First Name</label>
-    {{input name='firstName' value=firstName}}
+    {{input name='firstName' value=firstName required='true'}}
     <label for="lastName">Last Name</label>
-    {{input name='lastName' value=lastName}}
+    {{input name='lastName' value=lastName required='true'}}
     <label for="password">Password</label>
-    {{input name='password' value=password type='password'}}
+    {{input name='password' value=password type='password' required='true'}}
 
     <button>Sign Up</button>
 </form>
