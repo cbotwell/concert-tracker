@@ -4,24 +4,38 @@
         <img src="{{band.imageUrl}}" alt="{{band.name}}">
         <h3>{{band.name}}</h3>
 
+        <ul>
         {{#if band.url}}
-        <a href="{{band.url}}">{{fa-icon "link"}}</a>
+        <li>
+            <a href="{{band.url}}">{{fa-icon "link"}}</a>
+        </li>
         {{/if}}
         {{#if band.facebookUrl}}
-        <a href="{{band.facebookUrl}}">{{fa-icon "facebook"}}</a>
+        <li>
+            <a href="{{band.facebookUrl}}">{{fa-icon "facebook"}}</a>
+        </li>
         {{/if}}
         {{#if band.twitterUrl}}
-        <a href="{{band.twitterUrl}}">{{fa-icon "twitter"}}</a>
+        <li>
+            <a href="{{band.twitterUrl}}">{{fa-icon "twitter"}}</a>
+        </li>
         {{/if}}
         {{#if band.instagramUrl}}
-        <a href="{{band.instagramUrl}}">{{fa-icon "instagram"}}</a>
+        <li>
+            <a href="{{band.instagramUrl}}">{{fa-icon "instagram"}}</a>
+        </li>
         {{/if}}
         {{#if band.soundcloudUrl}}
-        <a href="{{band.soundcloudUrl}}">{{fa-icon "soundcloud"}}</a>
+        <li>
+            <a href="{{band.soundcloudUrl}}">{{fa-icon "soundcloud"}}</a>
+        </li>
         {{/if}}
         {{#if band.spotifyUrl}}
-        <a href="{{band.spotifyUrl}}">{{fa-icon "spotify"}}</a>
+        <li>
+            <a href="{{band.spotifyUrl}}">{{fa-icon "spotify"}}</a>
+        </li>
         {{/if}}
+        </ul>
 
         {{#if band.description}}
         <p>{{band.description}}</p>

@@ -1,4 +1,8 @@
 @import 'reset';
+
+$tablet: max-width 1024px;
+$mobile: max-width 480px;
+
 @import "bourbon";
 @import "neat";
 
@@ -38,6 +42,12 @@ nav {
         float: left;
         font-weight: bold;
         font-size: 1.8em;
+
+        @include media($mobile) {
+            margin-bottom: 20px;
+            float: none;
+            text-align: center;
+        }
     }
     ul {
         position: absolute;
@@ -45,9 +55,23 @@ nav {
         right: 0;
         transform: translateY(-50%);
 
+        @include media($mobile) {
+            position: relative;
+            transform: none;
+            text-align: center;
+        }
+
         li {
             float: left;
             margin-right: 30px;
+
+            @include media($mobile) {
+                float: none;
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 20px;
+                font-size: 1.2em;
+            }
         }
     }
 }
@@ -109,16 +133,26 @@ nav {
     .left {
         @include span-columns(8);
 
+        @include media($mobile) {
+            @include span-columns(12);
+            margin-bottom: 30px;
+        }
+
         img {
             width: 100%;
             margin-bottom: 20px;
         }
 
         .logo {
-            width: 100%;
+            @include span-columns(12);
 
             img {
-                max-width: 200px;
+                @include span-columns(4);
+
+                @include media($mobile) {
+                    @include span-columns(8);
+                    @include shift(2);
+                }
             }
         }
 
@@ -139,10 +173,24 @@ nav {
                 }
             }
         }
+        ul {
+            float: left;
+            overflow: auto;
+            @include media($mobile) {
+                float: none;
+                clear: both;
+                margin-bottom: 20px;
+                font-size: 1.5em;
+            }
+        }
 
-        a {
+        li {
             float: left;
             margin-left: 10px;
+
+            @include media($mobile) {
+                margin-right: 10%;
+            }
         }
 
         p {
@@ -161,6 +209,11 @@ nav {
     .right {
         @include span-columns(4);
         @include omega();
+
+        @include media($mobile) {
+            @include span-columns(12);
+            display: inline;
+        }
 
         button {
             float: left;
@@ -329,6 +382,9 @@ nav {
                 margin-bottom: 20px;
                 font-size: 1em;
                 overflow: auto;
+                float: left;
+                margin-bottom: 20px;
+                margin-right: 20px;
 
                 span {
                     font-weight: bold;
@@ -361,6 +417,11 @@ nav {
     a {
         @include span-columns(4);
         @include omega(3n);
+
+        @include media($mobile) {
+            @include span-columns(10);
+            @include shift(1);
+        }
     }
     .card {
         min-height: 166px;
@@ -394,6 +455,10 @@ nav {
         float: left;
         margin-right: 25px;
         font-size: 1.5em;
+
+        @include media($mobile) {
+            font-size: 1em;
+        }
 
         &:hover {
             color: lighten($alt-color, 20%);
@@ -435,5 +500,20 @@ nav {
         &:hover {
             background: darken($alt-color, 20%);
         }
+    }
+}
+
+.read-more {
+    background: $alt-color;
+    color: $bg-color;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+
+    &:hover {
+        background: darken($alt-color, 20%);
     }
 }

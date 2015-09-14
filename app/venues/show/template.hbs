@@ -11,16 +11,26 @@
             {{/if}}
         </h3>
 
-        <a href="{{model.venue.url}}">{{fa-icon "link"}}</a>
-        {{#if model.venue.facebookUrl}}
-        <a href="{{model.venue.facebookUrl}}">{{fa-icon "facebook"}}</a>
-        {{/if}}
-        {{#if model.venue.twitterUrl}}
-        <a href="{{model.venue.twitterUrl}}">{{fa-icon "twitter"}}</a>
-        {{/if}}
-        {{#if model.venue.instagramUrl}}
-        <a href="{{model.venue.instagramUrl}}">{{fa-icon "instagram"}}</a>
-        {{/if}}
+        <ul>
+            <li>
+                <a href="{{model.venue.url}}">{{fa-icon "link"}}</a>
+            </li>
+            {{#if model.venue.facebookUrl}}
+            <li>
+                <a href="{{model.venue.facebookUrl}}">{{fa-icon "facebook"}}</a>
+            </li>
+            {{/if}}
+            {{#if model.venue.twitterUrl}}
+            <li>
+                <a href="{{model.venue.twitterUrl}}">{{fa-icon "twitter"}}</a>
+            </li>
+            {{/if}}
+            {{#if model.venue.instagramUrl}}
+            <li>
+                <a href="{{model.venue.instagramUrl}}">{{fa-icon "instagram"}}</a>
+            </li>
+            {{/if}}
+        </ul>
 
         <p>
             {{model.venue.address}} {{model.venue.city}}, {{model.venue.state}} {{model.venue.zipcode}}
