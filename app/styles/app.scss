@@ -10,7 +10,7 @@ $header-color: #FC4349;
 $text-color: #2C3E50;
 $alt-color: #6DBCDB;
 $borders: 1px solid darken($card-color, 25%);
-$alt-border: 1px dotted darken($card-color, 25%);
+$alt-border: 2px solid darken($card-color, 10%);
 
 body {
     background: $bg-color;
@@ -229,13 +229,31 @@ nav {
         h4 {
             font-size: 1.5em;
             margin-bottom: 20px;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
             color: $alt-color;
             border-bottom: $alt-border;
         }
-        .concert {
-            span {
-                font-weight: bold;
+        .venue-concerts {
+            .concert {
+                margin-bottom: 20px;
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+        .details {
+            margin-bottom: 20px;
+        }
+        .posts {
+            border-top: $alt-border;
+            padding-top: 20px;
+
+            li a {
+                color: $alt-color;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -317,7 +335,7 @@ nav {
         }
     }
 }
-.featured, .saved, .faved, .concerts, .venues, .bands, .profile {
+.featured, .saved, .faved, .concerts, .venues, .bands, .profile, .blog {
     @include span-columns(12);
     margin-bottom: 50px;
     a {
@@ -384,6 +402,7 @@ nav {
 .links {
     @include span-columns(12);
     overflow: auto;
+    margin-bottom: 70px;
 
     h3 {
         float: left;

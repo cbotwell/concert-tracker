@@ -2,8 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.findAll('concert', {
+    return Ember.RSVP.hash({
+      posts: this.store.findAll('post', {
+        orderBy: 'date',
+        limitToLast: 6
+      }),
+      concerts: this.store.findAll('concert', {
         orderBy: 'date'
+      }),
     });
   }
 });

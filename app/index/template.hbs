@@ -2,7 +2,7 @@
     <h2>Featured Concerts</h2>
 </div>
 <div class="featured">
-    {{#each model as |concert|}}
+    {{#each model.concerts as |concert|}}
     {{#if concert.featured}}
         {{#link-to 'concerts.show' concert.id}}
         <div class="card">
@@ -14,8 +14,24 @@
     {{/if}}
     {{/each}}
 </div>
+
 <div class="links">
     {{#link-to 'concerts'}}<h3>All Concerts</h3>{{/link-to}}
     {{#link-to 'venues'}}<h3>All Venues</h3>{{/link-to}}
+</div>
+
+<div class="header">
+    <h2>Blog</h2>
+</div>
+<div class="blog">
+    {{#each model.posts as |post|}}
+        {{#link-to 'post.show' post.id}}
+        <div class="card">
+            <h3>{{post.title}}</h3>
+            <h5>By: {{post.author.fullName}}</h5>
+            <h5>Posted: {{moment-from-now post.date}}</h5>
+        </div>
+        {{/link-to}}
+    {{/each}}
 </div>
 {{outlet}}

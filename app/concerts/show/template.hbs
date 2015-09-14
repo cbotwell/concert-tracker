@@ -54,14 +54,30 @@
         </div>
         {{/if}}
 
-        <h2>{{moment-format model.concert.date 'dddd, MMMM Do YYYY'}}</h2>
-        <h2>{{moment-format model.concert.time 'h:mm a' 'hh:mm A'}}</h2>
-        <h3>{{model.concert.venue.name}}</h3>
-        <p>
-            {{model.concert.venue.address}}
-            <br>
-            {{model.concert.venue.city}}, {{model.concert.venue.state}} {{model.concert.venue.zipcode}}
-        </p>
+        <div class="details">
+            <h2>{{moment-format model.concert.date 'dddd, MMMM Do YYYY'}}</h2>
+            <h2>{{moment-format model.concert.time 'h:mm a' 'hh:mm A'}}</h2>
+            <h3>{{model.concert.venue.name}}</h3>
+            <p>
+                {{model.concert.venue.address}}
+                <br>
+                {{model.concert.venue.city}}, {{model.concert.venue.state}} {{model.concert.venue.zipcode}}
+            </p>
+        </div>
+        {{#if model.concert.posts.length}}
+        <div class="posts">
+            <h3>Posts</h3>
+            <ul>
+                {{#each model.concert.posts as |post|}}
+                <li class="post">
+                {{#link-to 'post.show' post.id}}
+                    {{post.title}}
+                {{/link-to}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
     </div>
 
     <div class="comments">
