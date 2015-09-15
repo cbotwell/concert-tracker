@@ -176,25 +176,29 @@ nav {
         ul {
             float: left;
             overflow: auto;
+            font-size: 1.5em;
+            margin-bottom: 20px;
             @include media($mobile) {
                 float: none;
                 clear: both;
-                margin-bottom: 20px;
-                font-size: 1.5em;
             }
         }
 
         li {
             float: left;
-            margin-left: 10px;
+            margin-left: 20px;
+
+            &:first-of-type {
+                margin-left: 0;
+            }
 
             @include media($mobile) {
-                margin-right: 10%;
             }
         }
 
         p {
             margin-bottom: 20px;
+            line-height: 1.2;
             clear: both;
             span {
                 font-weight: bold;
@@ -276,6 +280,7 @@ nav {
         }
 
         h2 {
+            line-height: 1.4;
             font-size: 1.5em;
             margin-bottom: 20px;
         }
@@ -291,8 +296,14 @@ nav {
             color: $alt-color;
             border-bottom: $alt-border;
         }
+
+        p {
+            line-height: 1.2;
+        }
+
         .venue-concerts {
             .concert {
+                line-height: 1.4;
                 margin-bottom: 20px;
                 span {
                     font-weight: bold;
@@ -318,6 +329,9 @@ nav {
 
     form {
         padding: 0 20%;
+        @include media($mobile) {
+            padding: 0 5%;
+        }
 
         label, input, select, textarea {
             @include span-columns(12);
@@ -489,6 +503,13 @@ nav {
     overflow: auto;
     margin-bottom: 70px;
 
+    @include media($mobile) {
+        width: auto;
+        position: relative;
+        left:50%;
+        transform: translateX(-50%);
+    }
+
     h3 {
         float: left;
         padding: 15px;
@@ -500,6 +521,11 @@ nav {
         &:hover {
             background: darken($alt-color, 20%);
         }
+
+    }
+
+    .last {
+        margin-right: 0;
     }
 }
 
