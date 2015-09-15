@@ -2,6 +2,7 @@
 
 $tablet: max-width 1024px;
 $mobile: max-width 480px;
+$single-column: max-width 800px;
 
 @import "bourbon";
 @import "neat";
@@ -97,6 +98,13 @@ nav {
         white-space: nowrap;
         overflow: hidden;
 
+        @include media($tablet) {
+            font-size: 1.1em;
+        }
+        @include media($mobile) {
+            font-size: 1.3em;
+        }
+
         .venue {
             @include span-columns(10.5);
             text-overflow: ellipsis;
@@ -133,7 +141,7 @@ nav {
     .left {
         @include span-columns(8);
 
-        @include media($mobile) {
+        @include media($single-column) {
             @include span-columns(12);
             margin-bottom: 30px;
         }
@@ -191,9 +199,6 @@ nav {
             &:first-of-type {
                 margin-left: 0;
             }
-
-            @include media($mobile) {
-            }
         }
 
         p {
@@ -214,7 +219,7 @@ nav {
         @include span-columns(4);
         @include omega();
 
-        @include media($mobile) {
+        @include media($single-column) {
             @include span-columns(12);
             display: inline;
         }
