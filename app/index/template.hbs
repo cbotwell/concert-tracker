@@ -25,13 +25,21 @@
 </div>
 <div class="blog">
     {{#each model.posts as |post|}}
+            <div class="large-card">
+                <div class="post">
+                    <div class="post-title">
+                        <h2>{{post.title}}</h2>
+                        <h3><span>By:</span> {{post.author.fullName}}</h3>
+                        <h3><span>Posted:</span> {{moment-from-now post.date}}</h3>
+                    </div>
+                    <div class="content">
+                        <p>{{truncate-post post.content}}...</p>
+                    </div>
+                </div>
         {{#link-to 'post.show' post.id}}
-        <div class="card">
-            <h3>{{post.title}}</h3>
-            <h5>By: {{post.author.fullName}}</h5>
-            <h5>Posted: {{moment-from-now post.date}}</h5>
-        </div>
+                <button class="read-more">Read More</button>
         {{/link-to}}
+            </div>
     {{/each}}
 </div>
 {{outlet}}

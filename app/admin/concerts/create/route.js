@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Route.extend({
   model: function() {
@@ -12,7 +13,8 @@ export default Ember.Route.extend({
   actions: {
     save: function(concert, bands) {
       var bandsArray = [bands];
-      concert.setProperties({bands: bandsArray});
+      var date = concert.get('date');
+      concert.setProperties({bands: bandsArray, date: moment(date)});
       concert.save().then(() => {
         concert.get('venue').then((venue) => {
           venue.save();
