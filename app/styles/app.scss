@@ -2,6 +2,7 @@
 
 $tablet: max-width 1024px;
 $mobile: max-width 480px;
+$small-mobile: max-width 320px;
 $single-column: max-width 800px;
 
 @import "bourbon";
@@ -48,6 +49,10 @@ nav {
             margin-bottom: 20px;
             float: none;
             text-align: center;
+        }
+        @include media($small-mobile) {
+            font-size: 1.5em;
+
         }
     }
     ul {
