@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import moment from 'moment';
+// import moment from 'moment';
 import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
@@ -9,8 +9,9 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       signup(email, password, firstName, lastName) {
         var firebase = this.get('firebase');
 
-        firebase.createUser({email, password}, (err, data) => {
+        firebase.createUser({email, password}, (err) => {
           if (err) {
+            alert(err);
             return console.log(err);
           }
 

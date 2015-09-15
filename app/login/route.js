@@ -9,5 +9,9 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
           password
         });
       },
+      sessionAuthenticationFailed: function(error) {
+        this.controllerFor('application').set('loginErrorMessage', error.message);
+        alert(error.message);
+      }
     },
 });
