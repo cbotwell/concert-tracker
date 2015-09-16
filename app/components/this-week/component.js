@@ -4,9 +4,12 @@ import moment from 'moment';
 export default Ember.Component.extend({
   concerts: [],
 
-  thisWeek: Ember.computed.filter('concerts', function(concert) {
+  concertsSorting: ['date'],
+  sortedConcerts: Ember.computed.sort('concerts', 'concertsSorting'),
+
+  thisWeek: Ember.computed.filter('sortedConcerts', function(concert) {
     var date = concert.get('date');
-    if (date > moment() && date < moment().add(7, 'days')) {
+    if (moment(date).isAfter(moment().subtract(1, 'days')) && moment(date).isBefore(moment().add(6, 'days'))) {
         return concert;
     }
   }),

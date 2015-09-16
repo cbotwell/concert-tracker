@@ -1,6 +1,6 @@
 <div class="saved">
-    {{#if concertsThisWeek.length}}
-    {{#each concertsThisWeek as |concert|}}
+    {{#if thisWeek.length}}
+    {{#each thisWeek as |concert|}}
         {{#link-to 'concerts.show' concert.id}}
         <div class="card">
             {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
