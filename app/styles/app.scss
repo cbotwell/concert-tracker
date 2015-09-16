@@ -59,11 +59,11 @@ nav {
         position: absolute;
         top: 50%;
         right: 0;
-        transform: translateY(-50%);
+        @include transform(translateY(-50%));
 
         @include media($mobile) {
             position: relative;
-            transform: none;
+            @include transform(none);
             text-align: center;
         }
 
@@ -461,7 +461,7 @@ nav {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
         }
     }
     .band {
@@ -517,7 +517,7 @@ nav {
         width: auto;
         position: relative;
         left:50%;
-        transform: translateX(-50%);
+        @include transform(translateX(-50%));
     }
 
     h3 {
