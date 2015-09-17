@@ -17,7 +17,7 @@
 <div class="faved">
     {{#if model.favoriteVenues.length}}
     {{#each model.favoriteVenues as |venue|}}
-        {{#link-to 'concerts.show' venue.id}}
+        {{#link-to 'venues.show' venue.id}}
         <div class="card">
              <h3><div class="venue">{{venue.name}}</div> {{venue-fav-button venue=venue user=model onClick='toggleFav'}}</h3>
              <p>
