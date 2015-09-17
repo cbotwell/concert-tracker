@@ -122,6 +122,10 @@ nav {
             font-size: 1.3em;
         }
 
+        @include media($small-mobile) {
+            font-size: 1.1em;
+        }
+
         .venue {
             @include span-columns(10.5);
             text-overflow: ellipsis;
