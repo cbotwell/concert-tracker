@@ -1,12 +1,12 @@
 # ConcertTracker
 
-ConcertTracker is my final project for The Iron Yard. It's a platform that allows editors to write about music and users to keep track of upcoming music and follow thier favorite venues.
+ConcertTracker is a platform that allows editors to write about music and users to keep track of upcoming concerts and follow thier favorite venues.
 
-### [View the Demo](http://concerttracker.corbinotwell.com/)
+#### [View the Demo](http://concerttracker.corbinotwell.com/)
 
-I built ConcertTracker because the best place to keep up to date with live music in Little Rock is in local weekly newspapers. However, that leaves much to be desired and concert specific websites/apps that track at a national scale are missing data for many local venues and concerts. 
+I built ConcertTracker because the best place to keep up to date with live music in Little Rock is in local weekly newspapers. However, that leaves much to be desired. Concert specific websites/apps that track at a national scale are missing data for many local venues and concerts. 
 
-There's nothing worse than finding out a great band played in town by seeing pictures on Instagram.
+There's nothing worse than finding out a great band played in town by seeing pictures on Instagram the next day.
 
 
 ## Tools Used
