@@ -1,2 +1,662 @@
+@import 'reset';
+
+// Break Points For Responsive
+
+$tablet: max-width 1024px;
+$mobile: max-width 480px;
+$small-mobile: max-width 320px;
+$single-column: max-width 800px;
+
 @import "bourbon";
 @import "neat";
+
+// Style Variables
+
+$nav-color: #FC4349;
+$nav-text-color: #FFFFFF;
+$bg-color: #2C3E50;
+$card-color: #ECF0F1;
+$header-color: #FC4349;
+$text-color: #2C3E50;
+$alt-color: #6DBCDB;
+$borders: 1px solid darken($card-color, 25%);
+$alt-border: 2px solid darken($card-color, 10%);
+
+body {
+    background: $bg-color;
+    font-family: Heletica, sans-serif;
+    color: #FFFFFF;
+}
+
+.main {
+    padding: 0 30px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    position: relative;
+    @include outer-container(980px);
+}
+
+// Nav Bar
+
+nav {
+    background: $nav-color;
+    overflow: auto;
+    padding: 25px 50px;
+    color: $nav-text-color;
+    margin-bottom: 50px;
+
+    h2 {
+        float: left;
+        font-weight: bold;
+        font-size: 1.8em;
+
+        @include media($mobile) {
+            margin-bottom: 20px;
+            float: none;
+            text-align: center;
+        }
+        @include media($small-mobile) {
+            font-size: 1.5em;
+
+        }
+    }
+    ul {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        @include transform(translateY(-50%));
+
+        @include media($mobile) {
+            position: relative;
+            @include transform(none);
+            text-align: center;
+        }
+
+        li {
+            float: left;
+            margin-right: 30px;
+
+            @include media($mobile) {
+                float: none;
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 20px;
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+// Small Card Styles
+
+.card {
+    background: $card-color;
+    border-radius: 5px;
+    border: $borders;
+    padding: 20px;
+    color: $text-color;
+    margin-bottom: 20px;
+
+    // Small Card Header
+
+    h3 {
+        color: $header-color;
+        font-size: 1.3em;
+        border-bottom: $alt-border;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        @include media($tablet) {
+            font-size: 1.1em;
+        }
+        @include media($mobile) {
+            font-size: 1.3em;
+        }
+
+        @include media($small-mobile) {
+            font-size: 1.1em;
+        }
+
+        .venue {
+            @include span-columns(10.5);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .fav {
+            @include span-columns(1.5);
+
+            .fa-heart:hover {
+                color: lighten($header-color, 5%);
+            }
+        }
+    }
+
+    // Small Card Body Text
+
+    h5 {
+        margin: 20px 0;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+// Full Width Large Card
+
+.large-card {
+    @include span-columns(12);
+    background: $card-color;
+    border-radius: 5px;
+    border: $borders;
+    padding: 20px;
+    color: $text-color;
+    margin-bottom: 20px;
+
+    // Left Column (Shows Up First on Single Column View)
+
+    .left {
+        @include span-columns(8);
+
+        @include media($single-column) {
+            @include span-columns(12);
+            margin-bottom: 30px;
+        }
+
+        // Band Image
+
+        img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        // Venue Logo
+
+        .logo {
+            @include span-columns(12);
+
+            img {
+                @include span-columns(4);
+
+                @include media($mobile) {
+                    @include span-columns(8);
+                    @include shift(2);
+                }
+            }
+        }
+
+        // Main Header For Band or Venue
+
+        h3 {
+            color: $header-color;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            float: left;
+
+            .fav {
+                float: right;
+                margin-left: 20px;
+                font-size: 0.8em;
+
+                .fa-heart:hover {
+                    color: lighten($header-color, 5%);
+                }
+            }
+        }
+
+        // Links and Social Media Icons
+
+        ul {
+            float: left;
+            overflow: auto;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            @include media($mobile) {
+                float: none;
+                clear: both;
+            }
+        }
+
+        li {
+            float: left;
+            margin-left: 20px;
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+
+        // Body Text
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.2;
+            clear: both;
+            span {
+                font-weight: bold;
+            }
+        }
+
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    // Right Column (Shows Up Second on Single Column View)
+
+    .right {
+        @include span-columns(4);
+        @include omega();
+
+        @include media($single-column) {
+            @include span-columns(12);
+            display: inline;
+        }
+
+        // Styling For Action Buttons
+
+        button {
+            float: left;
+            padding: 15px;
+            background: $alt-color;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            margin-right: 25px;
+            font-weight: bold;
+        }
+
+        button:hover:first-of-type {
+            background: darken($alt-color, 20%);
+        }
+
+        // Styling For Authenticated Users
+
+        .actions {
+            @include span-columns(12);
+            margin-bottom: 30px;
+
+            button {
+                @include span-columns(4);
+            }
+            a {
+                @include omega();
+
+                button {
+                    background: $nav-color;
+                    color: #FFFFFF;
+
+                    &:hover {
+                        background: darken($nav-color, 20%);
+                    }
+                }
+            }
+        }
+
+        // Styling for Unauthenticated Visitors
+
+        .generic-actions {
+            @include span-columns(12);
+            margin-bottom: 30px;
+
+            button {
+                @include span-columns(12);
+            }
+            a:first-of-type {
+                @include span-columns(8);
+            }
+            a:last-of-type {
+                @include span-columns(4);
+                @include omega();
+
+                button {
+                    background: $nav-color;
+                    color: #FFFFFF;
+
+                    &:hover {
+                        background: darken($nav-color, 20%);
+                    }
+                }
+            }
+        }
+
+        // Right Column Text Styling
+
+        h2 {
+            line-height: 1.4;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        h4 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            color: $alt-color;
+            border-bottom: $alt-border;
+        }
+
+        p {
+            line-height: 1.2;
+        }
+
+        // Styling for A Venue's Concert
+
+        .venue-concerts {
+            .concert {
+                line-height: 1.4;
+                margin-bottom: 20px;
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+        .details {
+            margin-bottom: 20px;
+        }
+
+        // Styling for a Concert's Posts
+
+        .posts {
+            border-top: $alt-border;
+            padding-top: 20px;
+
+            li a {
+                color: $alt-color;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    // Styling For Forms
+
+    form {
+        padding: 0 20%;
+        @include media($mobile) {
+            padding: 0 5%;
+        }
+
+        label, input, select, textarea {
+            @include span-columns(12);
+            margin-bottom: 10px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: $borders;
+            font-size: 1em;
+        }
+        button {
+            background: $nav-color;
+            color: #FFFFFF;
+            padding: 15px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            font-weight: bold;
+            float: right;
+            width: 100px;
+
+            &:hover {
+                background: darken($nav-color, 20%);
+            }
+        }
+    }
+
+    // Disqus Comments (Clears left and right columns, pads top)
+
+    .comments {
+        clear: both;
+        padding-top: 30px;
+    }
+
+    // Styles a User's Profile
+
+    .user {
+        h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: $nav-color;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    // Styles For a Blog Post
+
+    .post {
+
+        // Styles For Blog header and byline
+
+        .post-title {
+
+            h2 {
+                color: $header-color;
+                font-size: 1.5em;
+                margin-bottom: 20px;
+                line-height: 1.2;
+                font-weight: bold;
+            }
+
+            h3 {
+                color: $bg-color;
+                margin-bottom: 20px;
+                font-size: 1em;
+                overflow: auto;
+                float: left;
+                margin-bottom: 20px;
+                margin-right: 20px;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        // Style for Blog body text
+
+        .content {
+            border-top: $alt-border;
+            padding-top: 20px;
+            clear: both;
+
+            p {
+                line-height: 1.5;
+            }
+        }
+
+        // Style for Concert Details if a Post is related to one
+        // shows after post in single column view
+
+        .right {
+            padding-left: 3%;
+
+            @include media($single-column) {
+                padding-left: 0;
+            }
+
+            img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+// Formats Sections with Neat
+
+.featured, .saved, .faved, .concerts, .venues, .bands, .profile, .blog, .city {
+    @include span-columns(12);
+    margin-bottom: 50px;
+
+    // Formats Small Cards With Links
+
+    > a {
+        @include span-columns(4);
+        @include omega(3n);
+
+        @include media($mobile) {
+            @include span-columns(10);
+            @include shift(1);
+        }
+    }
+
+    // Sets min height for cards with less content
+
+    .card {
+        min-height: 166px;
+    }
+
+    .no-saved-concerts, .add {
+        min-height: 166px;
+    }
+
+    // Admin Create Cards
+
+    .add {
+        text-align: center;
+        position: relative;
+
+        .fa-plus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+    }
+
+    // Admin Band Card
+
+    .band {
+        max-height: 166px;
+        overflow: hidden;
+    }
+}
+
+// Section Headers
+
+.header {
+    @include span-columns(12);
+    color: $alt-color;
+    margin-bottom: 25px;
+
+    // Subnav Links (All Venues, All Concerts)
+
+    a {
+        padding: 10px;
+        float: left;
+        margin-right: 25px;
+        font-size: 1.5em;
+
+        @include media($mobile) {
+            font-size: 1em;
+            margin-right: 5px;
+        }
+
+        &:hover {
+            color: lighten($alt-color, 20%);
+        }
+    }
+
+    .active {
+        background: $alt-color;
+        color: $text-color;
+        border-radius: 5px;
+
+        &:hover {
+        color: $text-color;
+        }
+    }
+
+    // Subhead For Things Like 'This Week', 'Upcoming', etc.
+
+    h3 {
+        padding: 10px;
+        font-size: 1.2em;
+        color: lighten($alt-color, 15%);
+    }
+
+    // Primary Header Size
+
+    h2 {
+        font-size: 1.4em;
+    }
+}
+
+// Links For All Concerts, All Venues
+
+.links {
+    @include span-columns(12);
+    overflow: auto;
+    margin-bottom: 70px;
+
+    @include media($mobile) {
+        width: auto;
+        position: relative;
+        left:50%;
+        @include transform(translateX(-50%));
+    }
+
+    h3 {
+        float: left;
+        padding: 15px;
+        color: $text-color;
+        background: $alt-color;
+        border-radius: 5px;
+        margin-right: 25px;
+
+        &:hover {
+            background: darken($alt-color, 20%);
+        }
+
+    }
+
+    .last {
+        margin-right: 0;
+    }
+}
+
+// Read More Button for a Blog Post
+
+.read-more {
+    background: $alt-color;
+    color: $bg-color;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+
+    &:hover {
+        background: darken($alt-color, 20%);
+    }
+}

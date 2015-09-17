@@ -1,0 +1,25 @@
+<div class="venues">
+{{#link-to 'admin.venues.create'}}
+    <div class="card add">
+        <p>{{fa-icon 'plus'}}</p>
+         <p>
+             Add New Venue
+         </p>
+    </div>
+{{/link-to}}
+{{#each model as |venue|}}
+{{#link-to 'admin.venues.edit' venue.id}}
+    <div class="card">
+         <h3>{{venue.name}}</h3>
+         <p>
+             {{venue.address}}
+         <br>
+             {{venue.city}}, {{venue.state}} {{venue.zipcode}}
+         </p>
+         <p>
+             {{venue.phoneNumber}}
+         </p>
+    </div>
+{{/link-to}}
+{{/each}}
+</div>

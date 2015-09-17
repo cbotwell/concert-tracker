@@ -6,6 +6,50 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('index', {path: '/'});
+
+  this.route('login');
+  this.route('signup');
+
+  this.route('venues', function() {
+    this.route('index', {path: '/'});
+    this.route('show', {path: '/:venue_id'});
+  });
+
+  this.route('concerts', function() {
+    this.route('index', {path: '/'});
+    this.route('show', {path: '/:concert_id'});
+  });
+
+  this.route('dashboard');
+  this.route('profile');
+
+  this.route('post', function() {
+    this.route('show', {path: '/:post_id'});
+  });
+
+  this.route('admin', function() {
+    this.route('venues', function() {
+      this.route('index', {path: '/'});
+      this.route('create', {path: '/new'});
+      this.route('edit', {path: '/:venue_id/edit'});
+    });
+    this.route('concerts', function() {
+      this.route('index', {path: '/'});
+      this.route('create', {path: '/new'});
+      this.route('edit', {path: '/:concert_id/edit'});
+    });
+    this.route('bands', function() {
+      this.route('index', {path: '/'});
+      this.route('create', {path: '/new'});
+      this.route('edit', {path: '/:band_id/edit'});
+    });
+    this.route('posts', function() {
+      this.route('index', {path: '/'});
+      this.route('create', {path: '/new'});
+      this.route('edit', {path: '/:post_id/edit'});
+    });
+  });
 });
 
 export default Router;

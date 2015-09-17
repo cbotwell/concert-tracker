@@ -1,0 +1,14 @@
+<div class="header">
+    {{#link-to 'login'}}<h2>Log In</h2>{{/link-to}}
+    {{#link-to 'signup'}}<h2>Sign Up</h2>{{/link-to}}
+</div>
+<div class="large-card">
+<form {{action 'login' email password on='submit'}}>
+    <label for="email">Email</label>
+    {{input name='email' value=email type='email' required='true'}}
+    <label for="password">Password</label>
+    {{input name='password' value=password type='password' required='true'}}
+
+    <button>Log In</button>
+</form>
+</div>

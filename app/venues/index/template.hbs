@@ -1,0 +1,9 @@
+<div class="header all-venues">
+    {{#link-to 'concerts'}}<h2>All Concerts</h2>{{/link-to}}
+    {{#link-to 'venues'}}<h2>All Venues</h2>{{/link-to}}
+</div>
+<div class="venues">
+{{venue-by-city venues=model}}
+</div>
+
+{{outlet}}

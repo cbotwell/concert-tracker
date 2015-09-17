@@ -1,0 +1,55 @@
+<div class="header">
+    <h2>Saved Concerts</h2>
+</div>
+<div class="header">
+    <h3>This Week</h3>
+</div>
+{{this-week concerts=model.user.savedConcerts}}
+
+<div class="header">
+    <h2>Featured Concerts</h2>
+</div>
+<div class="featured">
+    {{#each model.concerts as |concert|}}
+    {{#if concert.featured}}
+        {{#link-to 'concerts.show' concert.id}}
+        <div class="card">
+            {{#each concert.bands as |band|}}<h3>{{band.name}}</h3>{{/each}}
+            <h5>{{moment-format concert.date 'dddd, MMMM Do YYYY'}}</h5>
+            <h5>{{concert.venue.name}}</h5>
+        </div>
+        {{/link-to}}
+    {{/if}}
+    {{/each}}
+</div>
+
+<div class="links">
+    {{#link-to 'concerts'}}<h3>All Concerts</h3>{{/link-to}}
+    {{#link-to 'venues'}}<h3 class="last">All Venues</h3>{{/link-to}}
+</div>
+
+<div class="header">
+    <h2>Blog</h2>
+</div>
+<div class="blog">
+    {{#each model.posts as |post|}}
+            <div class="large-card">
+                <div class="post">
+                    <div class="post-title">
+                        {{#link-to 'post.show' post.id}}
+                            <h2>{{post.title}}</h2>
+                        {{/link-to}}
+                        <h3><span>By:</span> {{post.author.fullName}}</h3>
+                        <h3><span>Posted:</span> {{moment-from-now post.date}}</h3>
+                    </div>
+                    <div class="content">
+                        <p>{{truncate-post post.content}}...</p>
+                    </div>
+                </div>
+        {{#link-to 'post.show' post.id}}
+                <button class="read-more">Read More</button>
+        {{/link-to}}
+            </div>
+    {{/each}}
+</div>
+{{outlet}}

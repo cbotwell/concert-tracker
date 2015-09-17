@@ -1,0 +1,10 @@
+{{#each upcomingConcerts as |concert|}}
+    <li class="concert">
+    {{#link-to 'concerts.show' concert.id}}
+        {{#each concert.bands as |band|}}
+        <span>{{band.name}}</span>
+        {{/each}}
+        on {{moment-format concert.date 'dddd, MMMM Do YYYY'}}
+    {{/link-to}}
+    </li>
+{{/each}}

@@ -1,0 +1,47 @@
+<div class="large-card">
+    {{#if model.concert}}
+        <div class="post">
+            <div class="left">
+                <div class="post-title">
+                    <h2>{{model.title}}</h2>
+                    <h3><span>By:</span> {{model.author.fullName}}</h3>
+                    <h3><span>Posted:</span> {{moment-from-now model.date}}</h3>
+                </div>
+                <div class="content">
+                    {{markdown-to-html markdown=model.content}}
+                </div>
+            </div>
+            <div class="right">
+                {{#each model.concert.bands as |band|}}
+                <img src="{{band.imageUrl}}" alt="{{band.name}}">
+                <h3>{{band.name}}</h3>
+                {{/each}}
+                <h3>{{moment-format model.concert.date 'dddd, MMMM Do YYYY'}}</h3>
+                <h3>{{moment-format model.concert.time 'h:mm a' 'hh:mm A'}}</h3>
+                <h3>{{model.concert.venue.name}}</h3>
+                <p>
+                    {{model.concert.venue.address}}
+                    <br>
+                    {{model.concert.venue.city}}, {{model.concert.venue.state}} {{model.concert.venue.zipcode}}
+                </p>
+            </div>
+        </div>
+        <div class="comments">
+            {{disqus-comments identifier=model.id title=model.id}}
+        </div>
+    {{else}}
+        <div class="post">
+            <div class="post-title">
+                <h2>{{model.title}}</h2>
+                <h3><span>Author:</span> {{model.author.fullName}}</h3>
+                <h3><span>Posted:</span> {{moment-from-now model.date}}</h3>
+            </div>
+            <div class="content">
+                {{markdown-to-html markdown=model.content}}
+            </div>
+        </div>
+        <div class="comments">
+            {{disqus-comments identifier=model.id title=model.id}}
+        </div>
+    {{/if}}
+</div>

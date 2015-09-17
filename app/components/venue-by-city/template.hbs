@@ -1,0 +1,28 @@
+{{#each venuesByCity as |city|}}
+<div class="header">
+    <h3>{{city.name}}</h3>
+</div>
+<div class="city">
+{{#each city.venues as |venue|}}
+{{#link-to 'venues.show' venue.id}}
+    <div class="card">
+         {{#if session.isAuthenticated}}
+             <h3><div class="venue">{{venue.name}}</div> {{venue-fav-button venue=venue user=session.currentUser onClick='toggleFav'}}</h3>
+
+        {{else}}
+         <h3>{{venue.name}}</h3>
+         {{/if}}
+
+         <p>
+             {{venue.address}}
+         <br>
+             {{venue.city}}, {{venue.state}} {{venue.zipcode}}
+         </p>
+         <p>
+             {{venue.phoneNumber}}
+         </p>
+    </div>
+{{/link-to}}
+{{/each}}
+</div>
+{{/each}}

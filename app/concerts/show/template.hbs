@@ -1,0 +1,102 @@
+<div class="large-card">
+    <div class="left">
+        {{#each model.concert.bands as |band|}}
+        <img src="{{band.imageUrl}}" alt="{{band.name}}">
+        <h3>{{band.name}}</h3>
+
+        <ul>
+        {{#if band.url}}
+        <li>
+            <a href="{{band.url}}">{{fa-icon "link"}}</a>
+        </li>
+        {{/if}}
+        {{#if band.facebookUrl}}
+        <li>
+            <a href="{{band.facebookUrl}}">{{fa-icon "facebook"}}</a>
+        </li>
+        {{/if}}
+        {{#if band.twitterUrl}}
+        <li>
+            <a href="{{band.twitterUrl}}">{{fa-icon "twitter"}}</a>
+        </li>
+        {{/if}}
+        {{#if band.instagramUrl}}
+        <li>
+            <a href="{{band.instagramUrl}}">{{fa-icon "instagram"}}</a>
+        </li>
+        {{/if}}
+        {{#if band.soundcloudUrl}}
+        <li>
+            <a href="{{band.soundcloudUrl}}">{{fa-icon "soundcloud"}}</a>
+        </li>
+        {{/if}}
+        {{#if band.spotifyUrl}}
+        <li>
+            <a href="{{band.spotifyUrl}}">{{fa-icon "spotify"}}</a>
+        </li>
+        {{/if}}
+        </ul>
+
+        {{#if band.description}}
+        <p>{{band.description}}</p>
+        {{/if}}
+        {{#if band.genre}}
+        <p><span>Genre:</span> {{band.genre}}</p>
+        {{/if}}
+        {{#if band.forFansOf}}
+        <p><span>For Fans of:</span> {{band.forFansOf}}</p>
+        {{/if}}
+        {{/each}}
+    </div>
+
+    <div class="right">
+        {{#if session.isAuthenticated}}
+        <div class="actions">
+            {{concert-save-button concert=model.concert user=session.currentUser onClick='toggleRsvp'}}
+            <button>{{model.concert.rsvps}}</button>
+
+            {{#if model.concert.ticketUrl}}
+            <a href="{{model.concert.ticketUrl}}"><button>Tickets</button></a>
+            {{/if}}
+        </div>
+        {{else}}
+        <div class="generic-actions">
+            {{#link-to 'login'}}<button>Log In To Track</button>{{/link-to}}
+            {{#if model.concert.ticketUrl}}
+            <a href="{{model.concert.ticketUrl}}"><button>Tickets</button></a>
+            {{/if}}
+        </div>
+        {{/if}}
+
+        <div class="details">
+            <h2>{{moment-format model.concert.date 'dddd, MMMM Do YYYY'}}</h2>
+            <h2>{{moment-format model.concert.time 'h:mm a' 'hh:mm A'}}</h2>
+            <h3>{{model.concert.venue.name}}</h3>
+            <p>
+                {{model.concert.venue.address}}
+                <br>
+                {{model.concert.venue.city}}, {{model.concert.venue.state}} {{model.concert.venue.zipcode}}
+            </p>
+        </div>
+        {{#if model.concert.posts.length}}
+        <div class="posts">
+            <h3>Posts</h3>
+            <ul>
+                {{#each model.concert.posts as |post|}}
+                <li class="post">
+                {{#link-to 'post.show' post.id}}
+                    {{post.title}}
+                {{/link-to}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="comments">
+        {{disqus-comments identifier=model.concert.id title=model.concert.bands.[0].name}}
+    </div>
+
+    {{outlet}}
+</div>

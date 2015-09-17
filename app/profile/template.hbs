@@ -1,0 +1,46 @@
+<div class="header">
+    <h2>My Profile</h2>
+</div>
+<div class="profile">
+    <div class="large-card">
+        <div class="user">
+            <h2>{{model.firstName}} {{model.lastName}}</h2>
+            <h3>{{model.email}}</h3>
+            <h3><span>Joined:</span> {{moment-from-now model.joinDate}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <h2>Favorite Venues</h2>
+</div>
+<div class="faved">
+    {{#if model.favoriteVenues.length}}
+    {{#each model.favoriteVenues as |venue|}}
+        {{#link-to 'venues.show' venue.id}}
+        <div class="card">
+             <h3><div class="venue">{{venue.name}}</div> {{venue-fav-button venue=venue user=model onClick='toggleFav'}}</h3>
+             <p>
+                 {{venue.address}}
+             <br>
+                 {{venue.city}}, {{venue.state}} {{venue.zipcode}}
+             </p>
+             <p>
+                 {{venue.phoneNumber}}
+             </p>
+        </div>
+        {{/link-to}}
+    {{/each}}
+    {{else}}
+        <div class="card no-saved-concerts">
+            <p>You should find a favorite venue!</p>
+        </div>
+    {{/if}}
+</div>
+
+<div class="header">
+    <h2>Saved Concerts</h2>
+</div>
+{{profile-saved-concerts concerts=model.savedConcerts}}
+
+{{outlet}}
