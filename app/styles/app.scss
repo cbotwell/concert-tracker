@@ -465,6 +465,7 @@ nav {
                 line-height: 1.2;
                 font-weight: bold;
             }
+
             h3 {
                 color: $bg-color;
                 margin-bottom: 20px;
@@ -512,13 +513,13 @@ nav {
 
 // Formats Sections with Neat
 
-.featured, .saved, .faved, .concerts, .venues, .bands, .profile, .blog {
+.featured, .saved, .faved, .concerts, .venues, .bands, .profile, .blog, .city {
     @include span-columns(12);
     margin-bottom: 50px;
 
     // Formats Small Cards With Links
 
-    a {
+    > a {
         @include span-columns(4);
         @include omega(3n);
 
@@ -577,6 +578,7 @@ nav {
 
         @include media($mobile) {
             font-size: 1em;
+            margin-right: 5px;
         }
 
         &:hover {
