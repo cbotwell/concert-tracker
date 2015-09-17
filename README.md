@@ -1,49 +1,26 @@
-# Concert-tracker
+# ConcertTracker
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+ConcertTracker is my final project for The Iron Yard. It's a platform that allows editors to write about music and users to keep track of upcoming music and follow thier favorite venues.
 
-## Prerequisites
+### [View the Demo](http://concerttracker.corbinotwell.com/)
 
-You will need the following things properly installed on your computer.
+I built ConcertTracker because the best place to keep up to date with live music in Little Rock is in local weekly newspapers. However, that leaves much to be desired and concert specific websites/apps that track at a national scale are missing data for many local venues and concerts. 
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+There's nothing worse than finding out a great band played in town by seeing pictures on Instagram.
 
-## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+## Tools Used
 
-## Running / Development
+* [Sass](http://sass-lang.com/)
+* [Bourbon](http://bourbon.io/)
+* [Neat](http://neat.bourbon.io/)
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+* [Moment.js](http://momentjs.com/)
+* [Ember Simple Auth](http://ember-simple-auth.com/)
+* [Disqus](https://disqus.com/)
+* [Divshot](https://divshot.com/)
 
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
+## About Ember
 
 * [ember.js](http://emberjs.com/)
 * [ember-cli](http://www.ember-cli.com/)
