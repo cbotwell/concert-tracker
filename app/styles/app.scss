@@ -1,5 +1,7 @@
 @import 'reset';
 
+// Break Points For Responsive
+
 $tablet: max-width 1024px;
 $mobile: max-width 480px;
 $small-mobile: max-width 320px;
@@ -7,6 +9,8 @@ $single-column: max-width 800px;
 
 @import "bourbon";
 @import "neat";
+
+// Style Variables
 
 $nav-color: #FC4349;
 $nav-text-color: #FFFFFF;
@@ -32,6 +36,13 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+.container {
+    position: relative;
+    @include outer-container(980px);
+}
+
+// Nav Bar
 
 nav {
     background: $nav-color;
@@ -81,10 +92,9 @@ nav {
         }
     }
 }
-.container {
-    position: relative;
-    @include outer-container(980px);
-}
+
+// Small Card Styles
+
 .card {
     background: $card-color;
     border-radius: 5px;
@@ -92,6 +102,8 @@ nav {
     padding: 20px;
     color: $text-color;
     margin-bottom: 20px;
+
+    // Small Card Header
 
     h3 {
         color: $header-color;
@@ -124,6 +136,9 @@ nav {
             }
         }
     }
+
+    // Small Card Body Text
+
     h5 {
         margin: 20px 0;
     }
@@ -134,6 +149,9 @@ nav {
         margin-bottom: 0;
     }
 }
+
+// Full Width Large Card
+
 .large-card {
     @include span-columns(12);
     background: $card-color;
@@ -143,6 +161,8 @@ nav {
     color: $text-color;
     margin-bottom: 20px;
 
+    // Left Column (Shows Up First on Single Column View)
+
     .left {
         @include span-columns(8);
 
@@ -151,10 +171,14 @@ nav {
             margin-bottom: 30px;
         }
 
+        // Band Image
+
         img {
             width: 100%;
             margin-bottom: 20px;
         }
+
+        // Venue Logo
 
         .logo {
             @include span-columns(12);
@@ -168,6 +192,8 @@ nav {
                 }
             }
         }
+
+        // Main Header For Band or Venue
 
         h3 {
             color: $header-color;
@@ -186,6 +212,9 @@ nav {
                 }
             }
         }
+
+        // Links and Social Media Icons
+
         ul {
             float: left;
             overflow: auto;
@@ -206,6 +235,8 @@ nav {
             }
         }
 
+        // Body Text
+
         p {
             margin-bottom: 20px;
             line-height: 1.2;
@@ -220,6 +251,8 @@ nav {
         }
     }
 
+    // Right Column (Shows Up Second on Single Column View)
+
     .right {
         @include span-columns(4);
         @include omega();
@@ -228,6 +261,8 @@ nav {
             @include span-columns(12);
             display: inline;
         }
+
+        // Styling For Action Buttons
 
         button {
             float: left;
@@ -243,6 +278,8 @@ nav {
         button:hover:first-of-type {
             background: darken($alt-color, 20%);
         }
+
+        // Styling For Authenticated Users
 
         .actions {
             @include span-columns(12);
@@ -264,6 +301,9 @@ nav {
                 }
             }
         }
+
+        // Styling for Unauthenticated Visitors
+
         .generic-actions {
             @include span-columns(12);
             margin-bottom: 30px;
@@ -289,6 +329,8 @@ nav {
             }
         }
 
+        // Right Column Text Styling
+
         h2 {
             line-height: 1.4;
             font-size: 1.5em;
@@ -311,6 +353,8 @@ nav {
             line-height: 1.2;
         }
 
+        // Styling for A Venue's Concert
+
         .venue-concerts {
             .concert {
                 line-height: 1.4;
@@ -323,6 +367,9 @@ nav {
         .details {
             margin-bottom: 20px;
         }
+
+        // Styling for a Concert's Posts
+
         .posts {
             border-top: $alt-border;
             padding-top: 20px;
@@ -336,6 +383,8 @@ nav {
             }
         }
     }
+
+    // Styling For Forms
 
     form {
         padding: 0 20%;
@@ -369,10 +418,15 @@ nav {
             }
         }
     }
+
+    // Disqus Comments (Clears left and right columns, pads top)
+
     .comments {
         clear: both;
         padding-top: 30px;
     }
+
+    // Styles a User's Profile
 
     .user {
         h2 {
@@ -391,7 +445,13 @@ nav {
             }
         }
     }
+
+    // Styles For a Blog Post
+
     .post {
+
+        // Styles For Blog header and byline
+
         .post-title {
 
             h2 {
@@ -416,6 +476,8 @@ nav {
             }
         }
 
+        // Style for Blog body text
+
         .content {
             border-top: $alt-border;
             padding-top: 20px;
@@ -426,8 +488,16 @@ nav {
             }
         }
 
+        // Style for Concert Details if a Post is related to one
+        // shows after post in single column view
+
         .right {
             padding-left: 3%;
+
+            @include media($single-column) {
+                padding-left: 0;
+            }
+
             img {
                 width: 100%;
                 margin-bottom: 20px;
@@ -435,9 +505,15 @@ nav {
         }
     }
 }
+
+// Formats Sections with Neat
+
 .featured, .saved, .faved, .concerts, .venues, .bands, .profile, .blog {
     @include span-columns(12);
     margin-bottom: 50px;
+
+    // Formats Small Cards With Links
+
     a {
         @include span-columns(4);
         @include omega(3n);
@@ -447,12 +523,19 @@ nav {
             @include shift(1);
         }
     }
+
+    // Sets min height for cards with less content
+
     .card {
         min-height: 166px;
     }
+
     .no-saved-concerts, .add {
         min-height: 166px;
     }
+
+    // Admin Create Cards
+
     .add {
         text-align: center;
         position: relative;
@@ -464,15 +547,23 @@ nav {
             @include transform(translate(-50%, -50%));
         }
     }
+
+    // Admin Band Card
+
     .band {
         max-height: 166px;
         overflow: hidden;
     }
 }
+
+// Section Headers
+
 .header {
     @include span-columns(12);
     color: $alt-color;
     margin-bottom: 25px;
+
+    // Subnav Links (All Venues, All Concerts)
 
     a {
         padding: 10px;
@@ -498,15 +589,23 @@ nav {
         color: $text-color;
         }
     }
+
+    // Subhead For Things Like 'This Week', 'Upcoming', etc.
+
     h3 {
         padding: 10px;
         font-size: 1.2em;
         color: lighten($alt-color, 15%);
     }
+
+    // Primary Header Size
+
     h2 {
         font-size: 1.4em;
     }
 }
+
+// Links For All Concerts, All Venues
 
 .links {
     @include span-columns(12);
@@ -538,6 +637,8 @@ nav {
         margin-right: 0;
     }
 }
+
+// Read More Button for a Blog Post
 
 .read-more {
     background: $alt-color;
